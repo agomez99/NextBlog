@@ -46,9 +46,9 @@ const Home = () => {
       {!loggedIn 
       ?
         <div>
-          <Link href="/users/register">
+          {/* <Link href="/users/register">
             <a>Register</a>
-          </Link> | 
+          </Link> |  */}
           <Link href="/users/login">
             <a> Login</a>
           </Link>
