@@ -42,18 +42,15 @@ const Home = () => {
   }
   return (
     <div>
-
-      <Navbar expand="lg" variant="light" bg="light">
-        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-
-        <Container className="d-flex flex-row-reverse">
-          <SocialFollow />
-
-        </Container>
-        <div bg="grey-light" text="center" p="4" rounded="none">
           <Head>
             <title>Austines Blog</title>
           </Head>
+      <Navbar expand="lg" variant="light" bg="light">
+        <Navbar.Brand href="/">Blog</Navbar.Brand>
+        <Container className="d-flex flex-row-reverse">
+          <SocialFollow />
+        </Container>
+        <div bg="grey-light" text="center" p="4" rounded="none">
           {notification}
           {!loggedIn
             ?
@@ -72,14 +69,17 @@ const Home = () => {
       </Navbar>
       <Container className="main-ctn">
         <Row>
-          <div class="col-xl">
-            <div class="card">
-            <div class="card-body">
+          <div className="col-xl">
+            <div className="card">
+            <div className="card-body">
               <h1 className="hdr">Blog</h1>
               {blogs.slice(0, 1).map(blog =>
                 <div className="blog-feature" text="left" p="5" rounded="none">
                   <img style={{ width: "100%", float: "right" }} src={blog.image} />
-                  <div >{blogs[0].title}
+                  <div >
+                  <Link href="/blog/[id]" as={'/blog/' + blog.id}>
+                          <a >{blog.title}</a>
+                        </Link>
                     <p>{"  "}</p>
                     {blogs[0].content.substring(0, 150)}...</div>
                 </div>
@@ -90,8 +90,8 @@ const Home = () => {
           {loggedIn && <CreatePost />}
 
           <Col xl={6}>
-            <div class="card">
-            <div class="card-body">
+            <div className="card">
+            <div className="card-body">
               <div className="blog-content" text="left" p="5" rounded="none">
                 <ul >
                   {blogs.slice(1, 4).map(blog =>
