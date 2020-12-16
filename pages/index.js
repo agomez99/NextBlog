@@ -3,6 +3,8 @@ import Head from 'next/head';
 import fire from '../config/fire-config';
 import CreatePost from '../components/CreatePost';
 import Link from 'next/link';
+import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Home = () => {
@@ -40,7 +42,13 @@ const Home = () => {
   }
   return (
     <div>
-          <div bg="grey" text="center" p="4" rounded="none">
+
+<Container>
+  <Row>
+    <Col>
+    
+
+    <div bg="grey" text="center" p="4" rounded="none">
           <div bg="grey-light" text="center" p="4" rounded="none">
             <Head>
               <title>Blog App</title>
@@ -69,28 +77,36 @@ const Home = () => {
                </div>
 
           )}
+          </div>
 
+    </Col>
+    {loggedIn && <CreatePost />}    
 
-          <div bg="black" text="left" p="5" rounded="none">
+    <Col>
+    
+    <div bg="black" text="left" p="5" rounded="none">
             <ul >
               {blogs.slice(1,4).map(blog =>
                 <li key={blog.id}>
-
-
                       <div bg="black" p="5" rounded="none">
                       <img  style={{height:"100px", float:"right"}} src={blog.image}/>
-                        <a href="/blog/[id]" as={'/blog/' + blog.id}>
+                        <Link href="/blog/[id]" as={'/blog/' + blog.id}>
                           <a itemProp="hello" className="blog-list">{blog.title}</a>
-                        </a>
+                        </Link>
                       <p style={{float:"right"}}className="blog-content">{blog.content.substring(0, 500)}...</p>
                      </div>
                 </li>
               )}
             </ul>
-            {loggedIn && <CreatePost />}    
             </div>
+    </Col>
+  </Row>
+</Container>
 
-</div>
+
+
+
+
     </div>
     
   )
