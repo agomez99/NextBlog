@@ -43,11 +43,9 @@ const Home = () => {
   return (
     <div>
 
-<Container>
+<Container className="main-ctn">
   <Row>
-    <Col>
-    
-
+  <Col xs={6}>
     <div bg="grey" text="center" p="4" rounded="none">
           <div bg="grey-light" text="center" p="4" rounded="none">
             <Head>
@@ -58,8 +56,8 @@ const Home = () => {
               ?
               <div>
                 {/* <Link href="/users/register">
-            <a>Register</a>
-          </Link> |  */}
+                    <a>Register</a>
+                  </Link> |  */}
                 <Link href="/users/login">
                   <a style={{ float: "left" }}> Login</a>
                 </Link>
@@ -67,33 +65,32 @@ const Home = () => {
               :
               <button onClick={handleLogout}>Logout</button>
             }    </div>
-          <h1>Blog</h1>
+          <h1 className="hdr">Blog</h1>
           {blogs.slice(0,1).map(blog =>
             <div bg="black" text="left" p="5" rounded="none">
-            <img  style={{height:"50px", float:"right"}} src={blog.image}/>
+            <img  style={{height:"300px", float:"right"}} src={blog.image}/>
                 <div className="blog-list">{blogs[0].title}
                 <p>{"  "}</p>
-               {blogs[0].content.substring(0, 200)}...</div>
+               {blogs[0].content.substring(0, 100)}...</div>
                </div>
-
           )}
           </div>
 
     </Col>
     {loggedIn && <CreatePost />}    
 
-    <Col>
+    <Col xs={6}>
     
     <div bg="black" text="left" p="5" rounded="none">
             <ul >
               {blogs.slice(1,4).map(blog =>
                 <li key={blog.id}>
-                      <div bg="black" p="5" rounded="none">
+                      <div bg="black" p="1" rounded="none">
                       <img  style={{height:"100px", float:"right"}} src={blog.image}/>
                         <Link href="/blog/[id]" as={'/blog/' + blog.id}>
                           <a itemProp="hello" className="blog-list">{blog.title}</a>
                         </Link>
-                      <p style={{float:"right"}}className="blog-content">{blog.content.substring(0, 500)}...</p>
+                      <p className="blog-content">{blog.content.substring(0, 300)}...</p>
                      </div>
                 </li>
               )}
