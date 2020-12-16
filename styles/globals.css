@@ -44,3 +44,24 @@ h1{
 .main-ctn{
   margin-top: 15%;
 }
+
+a.social {
+  margin: 0 1rem;
+  transition: transform 250ms;
+  display: inline-block;
+}
+a.social:hover {
+  transform: translateY(-5px);
+  color: 	#663399
+}
+a.linkedin {
+  color:#2867B2;
+}
+
+a.twitter {
+  color:#1DA1F2;;
+}
+
+a.github {
+  color: #0c0c0c;
+}

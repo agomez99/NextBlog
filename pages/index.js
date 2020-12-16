@@ -3,9 +3,9 @@ import Head from 'next/head';
 import fire from '../config/fire-config';
 import CreatePost from '../components/CreatePost';
 import Link from 'next/link';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import SocialFollow from "../SocialFollow"
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -43,11 +43,14 @@ const Home = () => {
   return (
     <div>
 
-<Container className="main-ctn">
-  <Row>
-  <Col xs={6}>
-    <div bg="grey" text="center" p="4" rounded="none">
-          <div bg="grey-light" text="center" p="4" rounded="none">
+<Navbar expand="lg" variant="light" bg="dark">
+<Navbar.Brand href="#home">Navbar</Navbar.Brand>
+
+  <Container className="d-flex flex-row-reverse">
+  <SocialFollow/>
+  
+  </Container>
+  <div bg="grey-light" text="center" p="4" rounded="none">
             <Head>
               <title>Blog App</title>
             </Head>
@@ -64,7 +67,15 @@ const Home = () => {
               </div>
               :
               <button onClick={handleLogout}>Logout</button>
-            }    </div>
+            }   
+             </div>
+</Navbar>
+
+<Container className="main-ctn">
+  <Row>
+  <Col xs={6}>
+    <div bg="grey" text="center" p="4" rounded="none">
+       
           <h1 className="hdr">Blog</h1>
           {blogs.slice(0,1).map(blog =>
             <div bg="black" text="left" p="5" rounded="none">
