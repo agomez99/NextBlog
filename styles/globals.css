@@ -1,9 +1,18 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    @apply bg-blue-500 p-12;
+
 }
 
 a {
@@ -13,4 +22,18 @@ a {
 
 * {
   box-sizing: border-box;
+}
+h1{
+  font-size: 10rem;
+  text-align: left;
+}
+
+.blog-list{
+  font-size: 2rem;
+  color:white;
+}
+
+.blog-content{
+  font-size: 1rem;
+  color:rgb(112, 112, 128);
 }

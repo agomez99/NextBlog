@@ -3,6 +3,8 @@ import fire from '../config/fire-config';
 const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [image, setImage] = useState('');
+
   const [notification, setNotification] = useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -11,9 +13,11 @@ const CreatePost = () => {
       .add({
         title: title,
         content: content,
+        image:image,
       });
     setTitle('');
     setContent('');
+    setImage('');
     setNotification('Blogpost created');
     setTimeout(() => {
       setNotification('')
@@ -33,6 +37,11 @@ const CreatePost = () => {
           Content<br />
           <textarea value={content} 
            onChange={({target}) => setContent(target.value)} />
+        </div>
+        <div>
+         Image Url<br />
+          <input type="text" value={image} 
+           onChange={({target}) => setImage(target.value)} />
         </div>
         <button type="submit">Save</button>
       </form>

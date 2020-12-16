@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start"
   },
@@ -11,7 +11,13 @@
     "dotenv": "^8.2.0",
     "firebase": "^8.2.0",
     "next": "10.0.3",
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "tailwind-react-ui": "^0.8.1"
+  },
+  "devDependencies": {
+    "postcss": "^8.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^2.0.2"
   }
 }
