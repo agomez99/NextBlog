@@ -43,80 +43,77 @@ const Home = () => {
   return (
     <div>
 
-<Navbar expand="lg" variant="light" bg="dark">
-<Navbar.Brand href="#home">Navbar</Navbar.Brand>
+      <Navbar expand="lg" variant="light" bg="light">
+        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
 
-  <Container className="d-flex flex-row-reverse">
-  <SocialFollow/>
-  
-  </Container>
-  <div bg="grey-light" text="center" p="4" rounded="none">
-            <Head>
-              <title>Blog App</title>
-            </Head>
-            {notification}
-            {!loggedIn
-              ?
-              <div>
-                {/* <Link href="/users/register">
+        <Container className="d-flex flex-row-reverse">
+          <SocialFollow />
+
+        </Container>
+        <div bg="grey-light" text="center" p="4" rounded="none">
+          <Head>
+            <title>Austines Blog</title>
+          </Head>
+          {notification}
+          {!loggedIn
+            ?
+            <div>
+              {/* <Link href="/users/register">
                     <a>Register</a>
                   </Link> |  */}
-                <Link href="/users/login">
-                  <a style={{ float: "left" }}> Login</a>
-                </Link>
-              </div>
-              :
-              <button onClick={handleLogout}>Logout</button>
-            }   
-             </div>
-</Navbar>
-
-<Container className="main-ctn">
-  <Row>
-  <Col xs={6}>
-    <div bg="grey" text="center" p="4" rounded="none">
-       
-          <h1 className="hdr">Blog</h1>
-          {blogs.slice(0,1).map(blog =>
-            <div bg="black" text="left" p="5" rounded="none">
-            <img  style={{height:"300px", float:"right"}} src={blog.image}/>
-                <div className="blog-list">{blogs[0].title}
-                <p>{"  "}</p>
-               {blogs[0].content.substring(0, 100)}...</div>
-               </div>
-          )}
+              <Link href="/users/login">
+                <a style={{ float: "left" }}> Login</a>
+              </Link>
+            </div>
+            :
+            <button onClick={handleLogout}>Logout</button>
+          }
+        </div>
+      </Navbar>
+      <Container className="main-ctn">
+        <Row>
+          <div class="col-xl">
+            <div class="card">
+            <div class="card-body">
+              <h1 className="hdr">Blog</h1>
+              {blogs.slice(0, 1).map(blog =>
+                <div className="blog-feature" text="left" p="5" rounded="none">
+                  <img style={{ width: "100%", float: "right" }} src={blog.image} />
+                  <div >{blogs[0].title}
+                    <p>{"  "}</p>
+                    {blogs[0].content.substring(0, 150)}...</div>
+                </div>
+              )}
+            </div>
+            </div>
           </div>
+          {loggedIn && <CreatePost />}
 
-    </Col>
-    {loggedIn && <CreatePost />}    
-
-    <Col xs={6}>
-    
-    <div bg="black" text="left" p="5" rounded="none">
-            <ul >
-              {blogs.slice(1,4).map(blog =>
-                <li key={blog.id}>
+          <Col xl={6}>
+            <div class="card">
+            <div class="card-body">
+              <div className="blog-content" text="left" p="5" rounded="none">
+                <ul >
+                  {blogs.slice(1, 4).map(blog =>
+                    <li key={blog.id}>
                       <div bg="black" p="1" rounded="none">
-                      <img  style={{height:"100px", float:"right"}} src={blog.image}/>
+                        <img style={{ height: "100px", float: "right" }} src={blog.image} />
                         <Link href="/blog/[id]" as={'/blog/' + blog.id}>
                           <a itemProp="hello" className="blog-list">{blog.title}</a>
                         </Link>
-                      <p className="blog-content">{blog.content.substring(0, 300)}...</p>
-                     </div>
-                </li>
-              )}
-            </ul>
+                        <p >{blog.content.substring(0, 300)}...</p>
+                      </div>
+                    </li>
+                  )}
+                </ul>
+                </div>
+              </div>
             </div>
-    </Col>
-  </Row>
-</Container>
-
-
-
-
-
+          </Col>
+        </Row>
+      </Container>
     </div>
-    
+
   )
 }
 export default Home;
