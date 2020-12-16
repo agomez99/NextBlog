@@ -3,6 +3,8 @@ import Head from 'next/head';
 import fire from '../config/fire-config';
 import CreatePost from '../components/CreatePost';
 import Link from 'next/link';
+
+
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState('');
@@ -38,35 +40,59 @@ const Home = () => {
   }
   return (
     <div>
-      <Head>
-        <title>Blog App</title>
-      </Head>
-      <h1>Blog</h1>
-      {notification}
-      {!loggedIn 
-      ?
-        <div>
-          <Link href="/users/register">
+          <div bg="grey" text="center" p="4" rounded="none">
+          <div bg="grey-light" text="center" p="4" rounded="none">
+            <Head>
+              <title>Blog App</title>
+            </Head>
+            {notification}
+            {!loggedIn
+              ?
+              <div>
+                {/* <Link href="/users/register">
             <a>Register</a>
-          </Link> | 
-          <Link href="/users/login">
-            <a> Login</a>
-          </Link>
-        </div>
-      :
-        <button onClick={handleLogout}>Logout</button>
-      }
-    <ul>
-        {blogs.map(blog =>
-          <li key={blog.id}>
-            <Link href="/blog/[id]" as={'/blog/' + blog.id }>
-              <a itemProp="hello">{blog.title}</a>
-            </Link>
-          </li>
-        )}
-      </ul>
-      {loggedIn && <CreatePost />}
+          </Link> |  */}
+                <Link href="/users/login">
+                  <a style={{ float: "left" }}> Login</a>
+                </Link>
+              </div>
+              :
+              <button onClick={handleLogout}>Logout</button>
+            }    </div>
+          <h1>Blog</h1>
+          {blogs.slice(0,1).map(blog =>
+            <div bg="black" text="left" p="5" rounded="none">
+            <img  style={{height:"50px", float:"right"}} src={blog.image}/>
+                <div className="blog-list">{blogs[0].title}
+                <p>{"  "}</p>
+               {blogs[0].content.substring(0, 200)}...</div>
+               </div>
+
+          )}
+
+
+          <div bg="black" text="left" p="5" rounded="none">
+            <ul >
+              {blogs.slice(1,4).map(blog =>
+                <li key={blog.id}>
+
+
+                      <div bg="black" p="5" rounded="none">
+                      <img  style={{height:"100px", float:"right"}} src={blog.image}/>
+                        <a href="/blog/[id]" as={'/blog/' + blog.id}>
+                          <a itemProp="hello" className="blog-list">{blog.title}</a>
+                        </a>
+                      <p style={{float:"right"}}className="blog-content">{blog.content.substring(0, 500)}...</p>
+                     </div>
+                </li>
+              )}
+            </ul>
+            {loggedIn && <CreatePost />}    
+            </div>
+
+</div>
     </div>
+    
   )
 }
 export default Home;
