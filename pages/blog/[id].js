@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Blog = (props) => {
   const [blog, setBlog] = useState(null);
   const [notification, setNotification] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);  
+  const [loggedIn, setLoggedIn] = useState(false);
   fire.auth()
     .onAuthStateChanged((user) => {
       if (user) {
@@ -39,17 +39,17 @@ const Blog = (props) => {
   }, []);
   console.log(blog)
 
-  if(!blog){
-    return(
+  if (!blog) {
+    return (
       <h2>Loading...</h2>
     )
   }
   return (
 
 
-    
+
     <div>
- <Navbar expand="lg" variant="light" bg="light">
+      <Navbar expand="lg" variant="light" bg="light">
         <Navbar.Brand href="/">Blog</Navbar.Brand>
         <Container className="d-flex flex-row-reverse">
           <SocialFollow />
@@ -72,19 +72,27 @@ const Blog = (props) => {
         </div>
       </Navbar>
 
-      <h2>{blog.title}</h2>
+
+
+<Row>
+<Col className="feature">
+      <h2 style={{textAlign:"center"}}>{blog.title}</h2>
+      <img src={blog.image} className="center" style={{height:"500px", }}/>
       <p>
         {blog.content}
       </p>
       <Link href="/">
         <a>Back</a>
       </Link>
+
+</Col>
+      </Row>
     </div>
   )
 }
 Blog.getInitialProps = ({ query }) => {
   return {
-      id: query.id,
+    id: query.id,
   }
 }
 export default Blog

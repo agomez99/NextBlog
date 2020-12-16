@@ -20,7 +20,7 @@ a {
 li{
   text-decoration: none;
   list-style-type: none;
-  color: white;
+  color: rgb(5, 5, 5);
 }
 * {
   box-sizing: border-box;
@@ -33,7 +33,7 @@ h1{
 .blog-list{
   font-size: 1.5rem;
   white-space: nowrap;
-  color:rgb(255, 255, 255);
+  color:rgb(17, 16, 16);
   padding:10px;
 }
 
@@ -44,9 +44,13 @@ h1{
 }
 .blog-content{
   font-size: 1rem;
-  color:rgb(255, 255, 255);
-  background-color: black;
+  color:rgb(8, 8, 8);
+  background-color: rgb(255, 246, 246);
   padding:10px;
+}
+.card-body, .card:hover{
+  transform: translateY(-10px);
+
 }
 
 .main-ctn{
@@ -72,4 +76,16 @@ a.twitter {
 
 a.github {
   color: #0c0c0c;
+}
+
+.feature{
+  margin-left:20%;
+  margin-right:20%;
+  margin-top:5%;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
 }

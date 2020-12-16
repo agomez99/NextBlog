@@ -42,9 +42,9 @@ const Home = () => {
   }
   return (
     <div>
-          <Head>
-            <title>Austines Blog</title>
-          </Head>
+      <Head>
+        <title>Austines Blog</title>
+      </Head>
       <Navbar expand="lg" variant="light" bg="light">
         <Navbar.Brand href="/">Blog</Navbar.Brand>
         <Container className="d-flex flex-row-reverse">
@@ -70,45 +70,48 @@ const Home = () => {
       <Container className="main-ctn">
         <Row>
           <div className="col-xl">
-            <div className="card">
-            <div className="card-body">
-              <h1 className="hdr">Blog</h1>
-              {blogs.slice(0, 1).map(blog =>
-                <div className="blog-feature" text="left" p="5" rounded="none">
-                  <img style={{ width: "100%", float: "right" }} src={blog.image} />
-                  <div >
-                  <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                          <a >{blog.title}</a>
-                        </Link>
-                    <p>{"  "}</p>
-                    {blogs[0].content.substring(0, 150)}...</div>
-                </div>
-              )}
-            </div>
+            <div className="card1">
+              <div className="card-body1">
+                <h1 className="hdr">Blog</h1>
+                {blogs.slice(0, 1).map(blog =>
+                  <div className="blog-feature" text="left" p="5" rounded="none">
+                    <img style={{ width: "100%", float: "right" }} src={blog.image} />
+                    <div >
+                      <Link href="/blog/[id]" as={'/blog/' + blog.id}>
+                        <a >{blog.title}</a>
+                      </Link>
+                      <p>{"  "}</p>
+                      {blogs[0].content.substring(0, 150)}...</div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
           {loggedIn && <CreatePost />}
 
           <Col xl={6}>
-            <div className="card">
-            <div className="card-body">
-              <div className="blog-content" text="left" p="5" rounded="none">
-                <ul >
-                  {blogs.slice(1, 4).map(blog =>
-                    <li key={blog.id}>
-                      <div bg="black" p="1" rounded="none">
-                        <img style={{ height: "100px", float: "right" }} src={blog.image} />
-                        <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                          <a itemProp="hello" className="blog-list">{blog.title}</a>
-                        </Link>
-                        <p >{blog.content.substring(0, 300)}...</p>
-                      </div>
-                    </li>
-                  )}
-                </ul>
-                </div>
-              </div>
+
+            <div className="blog-content" text="left" p="5" rounded="none">
+              <ul >
+                {blogs.slice(1, 4).map(blog =>
+                  <div className="card">
+                    <div className="card-body">
+                      <li key={blog.id} >
+                        <div bg="black" p="1" rounded="none">
+                          <img style={{ height: "100px", float: "right" }} src={blog.image} />
+                          <Link href="/blog/[id]" as={'/blog/' + blog.id}>
+                            <a itemProp="hello" className="blog-list">{blog.title}</a>
+                          </Link>
+                          <p >{blog.content.substring(0, 300)}...</p>
+                        </div>
+                      </li>
+                    </div>
+                  </div>
+                )}
+
+              </ul>
             </div>
+
           </Col>
         </Row>
       </Container>
