@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import fire from '../../config/fire-config';
 import { useRouter } from 'next/router'
-import { TextInput, Field, Label } from 'tailwind-react-ui'
-
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -28,17 +26,11 @@ const Login = () => {
       <h1>Login</h1>
       {notify}
       <form onSubmit={handleLogin}>
-
-      <Field>
-          <Label>Email</Label>
-           <TextInput name="name" type="text" value={username} 
+        Email<input type="text" value={username} 
         onChange= {({target}) => setUsername(target.value)} />
         <br />
-          <Label>Password</Label>
-           <TextInput name="name" type="text" value={password} 
-        onChange= {({target}) => setPassword(target.value)} />
-      </Field>
-
+        Password<input type="password" value={password} 
+        onChange={({target}) => setPassword(target.value)} />
         <br />
         <button type="submit">Login</button>
       </form>
