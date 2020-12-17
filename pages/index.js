@@ -116,7 +116,10 @@ const Home = () => {
             </div>
             </Col>
           </Row>
+          <Col className="comment" xl={5}>
           <Disqus />
+          </Col>
+
     </div>
 
   )

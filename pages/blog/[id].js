@@ -5,8 +5,25 @@ import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import SocialFollow from '../../SocialFollow'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
+import {
+  EmailShareButton,
+  EmailIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  RedditShareButton,
+  RedditIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  TwitterShareButton,
+} from "react-share";
+// import { ShareButton } from "react-custom-share";
+// import { css } from 'emotion';
 
 const Blog = (props) => {
+
+
+
   const [blog, setBlog] = useState(null);
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -38,16 +55,20 @@ const Blog = (props) => {
         setBlog(result.data())
       })
   }, []);
-  console.log(blog)
-
   if (!blog) {
     return (
       <h2>Loading...</h2>
     )
   }
+  const shareButtonProps = {
+    url: "https://github.com/greglobinski/react-custom-share",
+    network: "Facebook",
+    text: "Give it a try - react-custom-share component",
+    longtext:
+      "Social sharing buttons for React. Use one of the build-in themes or create a custom one from the scratch."
+  };
+
   return (
-
-
 
     <div>
       <Navbar expand="lg" variant="light" bg="light">
@@ -88,8 +109,30 @@ const Blog = (props) => {
 
 </Col>
       </Row>
-      <Disqus />
 
+      <Col className="comment" xl={5}>
+      <div className="share-btn"{...shareButtonProps} >
+        <label>Share</label>{""}
+      <EmailShareButton key={"email"} className={"btn"} >
+        <EmailIcon round size={50} />
+      </EmailShareButton>
+      {/* <ShareButton {...shareButtonProps}> */}
+      <FacebookShareButton  key={"fb"} className={"btn"} url="#">
+        <FacebookIcon round size={50} />
+      </FacebookShareButton>
+      {/* </ShareButton> */}
+      <LinkedinShareButton key={"linked"} className={"btn"} url="#">
+        <LinkedinIcon round size={50} />
+      </LinkedinShareButton>
+      <TwitterShareButton key={"twitter"} className={"btn"} url="#">
+        <TwitterIcon round size={50} />
+      </TwitterShareButton>
+      <RedditShareButton key={"reddit"} className={"btn"}url="#">
+        <RedditIcon round size={50} />
+      </RedditShareButton>
+      </div>
+      <Disqus />
+</Col>
     </div>
   )
 }

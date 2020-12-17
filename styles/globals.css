@@ -102,3 +102,9 @@ margin-top:5%;
 .card{
   margin-top:3%;
 }
+.comment{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:7%;
+}
