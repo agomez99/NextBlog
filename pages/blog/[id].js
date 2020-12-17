@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import SocialFollow from '../../SocialFollow'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Disqus from '../../components/Disqus';
 
 const Blog = (props) => {
   const [blog, setBlog] = useState(null);
@@ -87,6 +88,8 @@ const Blog = (props) => {
 
 </Col>
       </Row>
+      <Disqus />
+
     </div>
   )
 }

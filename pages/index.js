@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SocialFollow from "../SocialFollow"
+import Disqus from '../components/Disqus';
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -115,6 +116,7 @@ const Home = () => {
             </div>
             </Col>
           </Row>
+          <Disqus />
     </div>
 
   )
