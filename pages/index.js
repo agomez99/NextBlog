@@ -47,10 +47,9 @@ const Home = () => {
       </Head>
       <Navbar expand="lg" variant="light" bg="light">
         <Navbar.Brand href="/">Blog</Navbar.Brand>
-        <Container className="d-flex flex-row-reverse">
+        <Container  className="d-flex flex-row-reverse">
           <SocialFollow />
-        </Container>
-        <div bg="grey-light" text="center" p="4" rounded="none">
+          <div bg="grey-light" text="center" p="4" rounded="none">
           {notification}
           {!loggedIn
             ?
@@ -66,9 +65,12 @@ const Home = () => {
             <button onClick={handleLogout}>Logout</button>
           }
         </div>
+        </Container>
+       
       </Navbar>
-      <Container className="main-ctn">
-        <Row>
+      <Row>
+
+      <Col className="Col" xl={6}>
           <div className="col-xl">
             <div className="card1">
               <div className="card-body1">
@@ -88,33 +90,31 @@ const Home = () => {
             </div>
           </div>
           {loggedIn && <CreatePost />}
-
-          <Col xl={6}>
-
+          </Col>
+          <Col xl={4}>
             <div className="blog-content" text="left" p="5" rounded="none">
               <ul >
-                {blogs.slice(1, 4).map(blog =>
+                {blogs.slice(1, 6).map(blog =>
+                  <Link href="/blog/[id]" as={'/blog/' + blog.id}>
                   <div className="card">
                     <div className="card-body">
                       <li key={blog.id} >
                         <div bg="black" p="1" rounded="none">
                           <img style={{ height: "100px", float: "right" }} src={blog.image} />
-                          <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                            <a itemProp="hello" className="blog-list">{blog.title}</a>
-                          </Link>
+                            <p className="blog-list">{blog.title}</p>
                           <p >{blog.content.substring(0, 300)}...</p>
                         </div>
                       </li>
                     </div>
                   </div>
+                  </Link>
+
                 )}
 
               </ul>
             </div>
-
-          </Col>
-        </Row>
-      </Container>
+            </Col>
+          </Row>
     </div>
 
   )
