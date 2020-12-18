@@ -80,7 +80,7 @@ import Disqus from '../components/Disqus';
                 {blogs.slice(0, 1).map(blog =>
                   <div className="blog-feature" text="left" p="5" rounded="none">
                     <img style={{ width: "100%", float: "right" }} src={blog.image} />
-                    <div >
+                    <div className="blog-content-main">
                       <Link href="/blog/[id]" as={'/blog/' + blog.id}>
                         <a >{blog.title}</a>
                       </Link>

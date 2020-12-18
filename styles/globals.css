@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system;
 }
 
 a {
@@ -45,9 +44,14 @@ h1 {
   background-color: rgb(255, 246, 246);
   margin-top: 10%;
 }
+.blog-content-main{
+  font-size: 1.3rem;
+}
 .card-body,
 .card:hover {
   transform: translateY(-10px);
+  font-family: Roboto;
+
 }
 
 .main-ctn {

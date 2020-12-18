@@ -48,4 +48,6 @@ const CreatePost = () => {
     </div>
   )
 }
+
+
 export default CreatePost;

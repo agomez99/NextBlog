@@ -102,7 +102,7 @@ const Blog = (props) => {
 <Col className="feature">
       <h2 style={{textAlign:"center"}}>{blog.title}</h2>
       <img src={blog.image} className="center" style={{height:"300px", }}/>
-      <p>
+      <p className="blog-content-main">
         {blog.content}
       </p>
       <Link href="/">
