@@ -8,7 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SocialFollow from "../SocialFollow"
 import Disqus from '../components/Disqus';
 
-const Home = () => {
+
+  const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -89,7 +90,9 @@ const Home = () => {
                 )}
               </div>
             </div>
+        {/* <Heart/> */}
           </div>
+
           {loggedIn && <CreatePost />}
           </Col>
           <Col xl={4}>
@@ -97,7 +100,7 @@ const Home = () => {
               <ul >
                 {blogs.slice(1, 6).map(blog =>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                  <div className="card">
+                  <a className="card">
                     <div className="card-body">
                       <li key={blog.id} >
                         <div bg="black" p="1" rounded="none">
@@ -107,7 +110,7 @@ const Home = () => {
                         </div>
                       </li>
                     </div>
-                  </div>
+                  </a>
                   </Link>
 
                 )}

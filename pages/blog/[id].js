@@ -17,8 +17,8 @@ import {
   LinkedinIcon,
   TwitterShareButton,
 } from "react-share";
-// import { ShareButton } from "react-custom-share";
-// import { css } from 'emotion';
+
+
 
 const Blog = (props) => {
 
@@ -57,7 +57,9 @@ const Blog = (props) => {
   }, []);
   if (!blog) {
     return (
-      <h2>Loading...</h2>
+      <div >
+      <h2 style={{textAlign:"center", marginTop:"25%"}}>Loading...</h2>
+      </div>
     )
   }
   const shareButtonProps = {
@@ -106,7 +108,6 @@ const Blog = (props) => {
       <Link href="/">
         <a>Back</a>
       </Link>
-
 </Col>
       </Row>
 
@@ -116,11 +117,9 @@ const Blog = (props) => {
       <EmailShareButton key={"email"} className={"btn"} >
         <EmailIcon round size={50} />
       </EmailShareButton>
-      {/* <ShareButton {...shareButtonProps}> */}
       <FacebookShareButton  key={"fb"} className={"btn"} url="#">
         <FacebookIcon round size={50} />
       </FacebookShareButton>
-      {/* </ShareButton> */}
       <LinkedinShareButton key={"linked"} className={"btn"} url="#">
         <LinkedinIcon round size={50} />
       </LinkedinShareButton>

@@ -1,6 +1,3 @@
-
-
-
 html,
 body {
   padding: 0;
@@ -14,11 +11,10 @@ a {
   text-decoration: none;
 }
 
-
-.hdr{
+.hdr {
   font-size: 2rem;
 }
-li{
+li {
   text-decoration: none;
   list-style-type: none;
   color: rgb(5, 5, 5);
@@ -26,36 +22,35 @@ li{
 * {
   box-sizing: border-box;
 }
-h1{
+h1 {
   font-size: 10rem;
   text-align: left;
 }
 
-.blog-list{
+.blog-list {
   font-size: 1.5rem;
   white-space: nowrap;
-  color:rgb(17, 16, 16);
-  padding:10px;
+  color: rgb(17, 16, 16);
+  padding: 10px;
 }
 
-.blog-feature{
+.blog-feature {
   font-size: 1rem;
-  color:rgb(0, 0, 0);
-  padding:10px;
+  color: rgb(0, 0, 0);
+  padding: 10px;
 }
-.blog-content{
+.blog-content {
   font-size: 1rem;
-  color:rgb(8, 8, 8);
+  color: rgb(8, 8, 8);
   background-color: rgb(255, 246, 246);
-  margin-top:10%;
-
+  margin-top: 10%;
 }
-.card-body, .card:hover{
+.card-body,
+.card:hover {
   transform: translateY(-10px);
-
 }
 
-.main-ctn{
+.main-ctn {
   margin-top: 5%;
 }
 
@@ -66,45 +61,55 @@ a.social {
 }
 a.social:hover {
   transform: translateY(-5px);
-  color: 	#663399
+  color: #663399;
 }
 a.linkedin {
-  color:#2867B2;
+  color: #2867b2;
 }
 
 a.twitter {
-  color:#1DA1F2;;
+  color: #1da1f2;
 }
 
 a.github {
   color: #0c0c0c;
 }
 
-.feature{
-  margin-left:20%;
-  margin-right:20%;
-  margin-top:5%;
+.feature {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5%;
 }
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top:5%;
-  margin-bottom:5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   width: 75%;
 }
 
-.Col{
-margin-left:5%;
-margin-top:5%;
+.Col {
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
-.card{
-  margin-top:3%;
+.card {
+  margin-top: 3%;
 }
-.comment{
+.comment {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top:7%;
+  margin-top: 7%;
+}
+
+a.card:hover {
+  text-decoration: none;
+}
+
+.loading {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
