@@ -27,6 +27,12 @@ const Blog = (props) => {
   const [blog, setBlog] = useState(null);
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
+
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [image, setImage] = useState('');
+
+  
   fire.auth()
     .onAuthStateChanged((user) => {
       if (user) {
@@ -45,6 +51,23 @@ const Blog = (props) => {
         }, 2000)
       });
   }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fire.firestore()
+      .collection('blog')
+      .add({
+        title: title,
+        content: content,
+        image:image,
+      });
+    setTitle('');
+    setContent('');
+    setImage('');
+    setNotification('Blogpost changed');
+    setTimeout(() => {
+      setNotification('')
+    }, 2000)
+  }
 
   useEffect(() => {
     fire.firestore()
@@ -52,7 +75,7 @@ const Blog = (props) => {
       .doc(props.id)
       .get()
       .then(result => {
-        setBlog(result.data())
+        setBlog(result.data())  
       })
   }, []);
   if (!blog) {
@@ -105,10 +128,36 @@ const Blog = (props) => {
       <p className="blog-content-main">
         {blog.content}
       </p>
+
+      {loggedIn
+      ?
+      <form onSubmit={handleSubmit}>
+        <div>
+          Title<br />
+          <input type="text" value={blog.title} 
+           onChange={({target}) => setTitle(target.value)} />
+        </div>
+        <div>
+          Content<br />
+          <textarea value={blog.content} 
+           onChange={({target}) => setContent(target.value)} />
+        </div>
+        <div>
+         Image Url<br />
+          <input type="text" value={blog.image} 
+           onChange={({target}) => setImage(target.value)} />
+        </div>
+        <button type="submit">Save</button>
+      </form>
+      :
+      <>
+      </>
+      }
+      
       <Link href="/">
         <a>Back</a>
       </Link>
-</Col>
+     </Col>
       </Row>
 
       <Col className="comment" xl={5}>
