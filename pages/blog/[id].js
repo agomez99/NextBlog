@@ -5,6 +5,8 @@ import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import SocialFollow from '../../SocialFollow'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
+import { useRouter } from 'next/router'
+
 import {
   EmailShareButton,
   EmailIcon,
@@ -17,12 +19,7 @@ import {
   LinkedinIcon,
   TwitterShareButton,
 } from "react-share";
-
-
-
 const Blog = (props) => {
-
-
 
   const [blog, setBlog] = useState(null);
   const [notification, setNotification] = useState('');
@@ -77,6 +74,7 @@ const Blog = (props) => {
       .then(result => {
         setBlog(result.data())  
       })
+      console.log(props.id)
   }, []);
   if (!blog) {
     return (
@@ -85,12 +83,22 @@ const Blog = (props) => {
       </div>
     )
   }
+
+  const router = useRouter()
+  const {
+    query: { id },
+  } = router
+
   const shareButtonProps = {
-    url: "https://github.com/greglobinski/react-custom-share",
+
+    title:props.title,
+    url:'https://agblog.vercel.app/blog/'+props.id,
     network: "Facebook",
-    text: "Give it a try - react-custom-share component",
+    text: "My Developer Blog",
     longtext:
-      "Social sharing buttons for React. Use one of the build-in themes or create a custom one from the scratch."
+      "My Journey As A Web Developer.",
+      imageUrl:"https://www.simplilearn.com/ice9/free_resources_article_thumb/full_front_back.jpg"
+      
   };
 
   return (
@@ -163,19 +171,19 @@ const Blog = (props) => {
       <Col className="comment" xl={5}>
       <div className="share-btn"{...shareButtonProps} >
         <label>Share</label>{""}
-      <EmailShareButton key={"email"} className={"btn"} >
+      <EmailShareButton key={"email"} className={"btn"} url={shareButtonProps.url} text={shareButtonProps.text} media={shareButtonProps.imageUrl} title={shareButtonProps.title}>
         <EmailIcon round size={50} />
       </EmailShareButton>
-      <FacebookShareButton  key={"fb"} className={"btn"} url="#">
+      <FacebookShareButton  key={"fb"} className={"btn"} url={shareButtonProps.url} text={shareButtonProps.text} media={shareButtonProps.imageUrl} title={shareButtonProps.title}>
         <FacebookIcon round size={50} />
       </FacebookShareButton>
-      <LinkedinShareButton key={"linked"} className={"btn"} url="#">
+      <LinkedinShareButton key={"linked"} className={"btn"} url={shareButtonProps.url}>
         <LinkedinIcon round size={50} />
       </LinkedinShareButton>
-      <TwitterShareButton key={"twitter"} className={"btn"} url="#">
+      <TwitterShareButton key={"twitter"} className={"btn"} url={shareButtonProps.url}>
         <TwitterIcon round size={50} />
       </TwitterShareButton>
-      <RedditShareButton key={"reddit"} className={"btn"}url="#">
+      <RedditShareButton key={"reddit"} className={"btn"} url={shareButtonProps.url}>
         <RedditIcon round size={50} />
       </RedditShareButton>
       </div>
