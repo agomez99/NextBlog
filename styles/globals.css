@@ -45,7 +45,8 @@ h1 {
   margin-top: 10%;
 }
 .blog-content-main{
-  font-size: 2rem;
+  font-size: 1.2rem;
+  font-family:sans-serif;
 }
 .card-body,
 .card:hover {
@@ -53,7 +54,10 @@ h1 {
   font-family: Roboto;
 
 }
-
+.blogs:hover {
+  transform: translateY(10px);
+  background-color: rgb(167, 221, 221);
+}
 .main-ctn {
   margin-top: 5%;
 }
@@ -101,6 +105,7 @@ a.github {
 .card {
   margin-top: 3%;
 }
+
 .comment {
   display: block;
   margin-left: auto;

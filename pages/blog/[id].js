@@ -8,6 +8,7 @@ import Disqus from '../../components/Disqus';
 import { useRouter } from 'next/router'
 
 import {
+  FacebookShareCount,
   EmailShareButton,
   EmailIcon,
   FacebookShareButton,
@@ -79,7 +80,7 @@ const Blog = (props) => {
   if (!blog) {
     return (
       <div >
-      <h2 style={{textAlign:"center", marginTop:"25%"}}>Loading...</h2>
+      <h2 style={{fontSize:"1rem" , fontFamily:"sans-serif", textAlign:"center", marginTop:"25%"}}>Loading...</h2>
       </div>
     )
   }
@@ -91,15 +92,13 @@ const Blog = (props) => {
 
   const shareButtonProps = {
 
-    title:props.title,
     url:'https://agblog.vercel.app/blog/'+props.id,
-    network: "Facebook",
-    text: "My Developer Blog",
-    longtext:
-      "My Journey As A Web Developer.",
-      imageUrl:"https://www.simplilearn.com/ice9/free_resources_article_thumb/full_front_back.jpg"
+    description: "My Blog As A Developer",
+    title: "My Journey As A Web Developer.",
+    image:blog.image
       
   };
+  console.log(shareButtonProps);
 
   return (
 
@@ -171,16 +170,20 @@ const Blog = (props) => {
       <Col className="comment" xl={5}>
       <div className="share-btn"{...shareButtonProps} >
         <label>Share</label>{""}
-      <EmailShareButton key={"email"} className={"btn"} url={shareButtonProps.url} text={shareButtonProps.text} media={shareButtonProps.imageUrl} title={shareButtonProps.title}>
+      <EmailShareButton key={"email"} className={"btn"}  url={window.location.href} text={shareButtonProps.text} media={shareButtonProps.media} title={title}>
         <EmailIcon round size={50} />
       </EmailShareButton>
-      <FacebookShareButton  key={"fb"} className={"btn"} url={shareButtonProps.url} text={shareButtonProps.text} media={shareButtonProps.imageUrl} title={shareButtonProps.title}>
+      <FacebookShareButton  key={"fb"} className={"btn"}   url={shareButtonProps.url} quote={shareButtonProps.description} title={shareButtonProps.title}  image={shareButtonProps.image}   windowWidth={660} windowHeight={700} >
         <FacebookIcon round size={50} />
       </FacebookShareButton>
-      <LinkedinShareButton key={"linked"} className={"btn"} url={shareButtonProps.url}>
+      <FacebookShareCount url={shareButtonProps.url} >
+      {shareCount => <span className="myShareCountWrapper">{shareCount}</span>}
+            </FacebookShareCount>
+
+      <LinkedinShareButton key={"linked"} className={"btn"} url={shareButtonProps.url} title={title}>
         <LinkedinIcon round size={50} />
       </LinkedinShareButton>
-      <TwitterShareButton key={"twitter"} className={"btn"} url={shareButtonProps.url}>
+      <TwitterShareButton key={"twitter"} className={"btn"} title={shareButtonProps.title} url={shareButtonProps.url}  >
         <TwitterIcon round size={50} />
       </TwitterShareButton>
       <RedditShareButton key={"reddit"} className={"btn"} url={shareButtonProps.url}>

@@ -99,7 +99,8 @@ import ReactDOM from "react-dom";
               <ul >
                 {blogs.slice(1, 100).map(blog =>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                  <a className="card">
+                  <a  style={{backgroundColor:"grey", textDecoration:"none"}}>
+                  <div className="blogs">
                     <div className="card-body">
                       <li key={blog.id} >
                         <div bg="black" p="1" rounded="none">
@@ -108,6 +109,7 @@ import ReactDOM from "react-dom";
                           <p >{blog.content.substring(0, 300)}...</p>
                         </div>
                       </li>
+                    </div>
                     </div>
                   </a>
                   </Link>
