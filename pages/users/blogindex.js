@@ -105,7 +105,7 @@ import ReactDOM from "react-dom";
                       <li key={blog.id} >
                         <div bg="black" p="1" rounded="none">
                           <img style={{ height: "100px", float: "right" }} src={blog.image} />
-                            <p className="blog-list">{blog.title}</p>
+                          <p className="blog-list">{blog.title}{"-"}{blog.date}</p>
                           <p >{blog.content.substring(0, 300)}...</p>
                         </div>
                       </li>

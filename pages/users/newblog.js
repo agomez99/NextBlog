@@ -96,7 +96,8 @@ const newblog = () => {
                                                 <li key={blog.id} >
                                                     <div bg="black" p="1" rounded="none">
                                                         <img style={{ height: "50px", float: "right" }} src={blog.image} />
-                                                        <p className="blog-list">{blog.title}</p>
+                                                        <p className="blog-list">{blog.title}{"-"}{blog.date}</p>
+
                                                         <p >{blog.content.substring(0, 100)}...</p>
                                                         <Button variant="danger" >Delete</Button>
 

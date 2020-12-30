@@ -4,6 +4,7 @@ const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
+  const [date, setDate] = useState('');
 
   const [notification, setNotification] = useState('');
   const handleSubmit = (event) => {
@@ -14,10 +15,12 @@ const CreatePost = () => {
         title: title,
         content: content,
         image:image,
+        date:date,
       });
     setTitle('');
     setContent('');
     setImage('');
+    setDate('');
     setNotification('Blogpost created');
     setTimeout(() => {
       setNotification('')
@@ -32,6 +35,11 @@ const CreatePost = () => {
           Title<br />
           <input type="text" value={title} 
            onChange={({target}) => setTitle(target.value)} />
+        </div>
+        <div>
+          Date<br />
+          <input type="text" value={date} 
+           onChange={({target}) => setDate(target.value)} />
         </div>
         <div>
           Content<br />

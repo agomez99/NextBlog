@@ -42,6 +42,7 @@ import Disqus from '../components/Disqus';
         }, 2000)
       });
   }
+  console.log(blogs)
   return (
     <div>
       <Head>
@@ -102,16 +103,25 @@ import Disqus from '../components/Disqus';
           <div className="col-xl">
             <div className="card1">
               <div className="card-body1">
-                <h1 className="hdr">Blog</h1>
                 {blogs.slice(0, 1).map(blog =>
-                  <div className="blog-feature" text="left" p="5" rounded="none">
-                    <img style={{ width: "100%", float: "right" }} src={blog.image} />
+                  <div id="crosshair" className="blog-feature" text="left" p="5" rounded="none">
+                  <div href="/blog/[id]" as={'/blog/' + blog.id}>
+                    <Link href="/blog/[id]" as={'/blog/' + blog.id}>
+                  <img style={{ width: "100%", float: "right" }} src={blog.image} href="/blog/[id]" as={'/blog/' + blog.id} />
+                  </Link>
+                  </div>
                     <div className="blog-content-main">
-                      <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                        <a >{blog.title}</a>
+                      <Link href="/blog/[id]" as={'/blog/' + blog.id} >
+                        <p style={{fontSize:"1.9rem"}}>{blog.title}{" - "}{blog.date}</p>
                       </Link>
-                      <p>{"  "}</p>
-                      {blogs[0].content.substring(0, 150)}...</div>
+                      <div>
+                      <Link href="/blog/[id]" as={'/blog/' + blog.id}>
+                      <p>
+                      {blogs[0].content.substring(0, 150)}...
+                      </p>
+                      </Link>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
@@ -130,7 +140,7 @@ import Disqus from '../components/Disqus';
                       <li key={blog.id} >
                         <div bg="black" p="1" rounded="none">
                           <img style={{ height: "100px", float: "right" }} src={blog.image} />
-                            <p className="blog-list">{blog.title}</p>
+                          <p className="blog-list">{blog.title}{"-"}{blog.date}</p>
                           <p >{blog.content.substring(0, 300)}...</p>
                         </div>
                       </li>

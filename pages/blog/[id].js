@@ -6,6 +6,7 @@ import SocialFollow from '../../SocialFollow'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 import {
   FacebookShareCount,
@@ -29,6 +30,7 @@ const Blog = (props) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
+  const [date, setDate] = useState('');
 
   
   fire.auth()
@@ -57,10 +59,12 @@ const Blog = (props) => {
         title: title,
         content: content,
         image:image,
+        date:date,
       });
     setTitle('');
     setContent('');
     setImage('');
+    setDate('');
     setNotification('Blogpost changed');
     setTimeout(() => {
       setNotification('')
@@ -95,7 +99,7 @@ const Blog = (props) => {
     url:'https://agblog.vercel.app/blog/'+props.id,
     description: "My Blog As A Developer",
     title: "My Journey As A Web Developer.",
-    image:blog.image
+    image:"icon.png"
       
   };
   console.log(shareButtonProps);
@@ -143,6 +147,11 @@ const Blog = (props) => {
           Title<br />
           <input type="text" value={blog.title} 
            onChange={({target}) => setTitle(target.value)} />
+        </div>
+        <div>
+          Date<br />
+          <input type="text" value={blog.date} 
+           onChange={({target}) => setDate(target.value)} />
         </div>
         <div>
           Content<br />
