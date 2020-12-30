@@ -135,6 +135,7 @@ const Blog = (props) => {
 <Row>
 <Col className="feature">
       <h2 style={{textAlign:"center"}}>{blog.title}</h2>
+      <h2 style={{textAlign:"center"}}>{blog.date}</h2>
       <img src={blog.image} className="center" style={{height:"300px", }}/>
       <p className="blog-content-main">
         {blog.content}
