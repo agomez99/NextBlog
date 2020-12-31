@@ -6,7 +6,7 @@ import SocialFollow from '../../SocialFollow'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
 import { useRouter } from 'next/router'
-import Image from 'next/image'
+import Layout from '../../components/Layout'
 
 import {
   FacebookShareCount,
@@ -129,10 +129,9 @@ const Blog = (props) => {
           }
         </div>
       </Navbar>
-
-
-
+<Layout>
 <Row>
+
 <Col className="feature">
       <h2 style={{textAlign:"center"}}>{blog.title}</h2>
       <h2 style={{textAlign:"center"}}>{blog.date}</h2>
@@ -175,7 +174,9 @@ const Blog = (props) => {
         <a>Back</a>
       </Link>
      </Col>
+
       </Row>
+      </Layout>
 
       <Col className="comment" xl={5}>
       <div className="share-btn"{...shareButtonProps} >
@@ -201,7 +202,8 @@ const Blog = (props) => {
       </RedditShareButton>
       </div>
       <Disqus />
-</Col>
+      
+      </Col>
     </div>
   )
 }

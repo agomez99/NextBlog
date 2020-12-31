@@ -7,12 +7,14 @@ import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SocialFollow from "../SocialFollow"
 import Disqus from '../components/Disqus';
+import Layout from '../components/Layout'
 
 
   const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
+
   fire.auth()
     .onAuthStateChanged((user) => {
       if (user) {
@@ -44,6 +46,7 @@ import Disqus from '../components/Disqus';
   }
   console.log(blogs)
   return (
+    
     <div>
       <Head>
         <title>Austines Blog</title>
@@ -95,10 +98,10 @@ import Disqus from '../components/Disqus';
           
         </div>
         </Container>
-       
       </Navbar>
-      <Row>
+      <Layout>
 
+      <Row>
       <Col className="Col" xl={6}>
           <div className="col-xl">
             <div className="card1">
@@ -141,7 +144,7 @@ import Disqus from '../components/Disqus';
                   <a className="card">
                     <div className="card-body">
                       <li key={blog.id} >
-                        <div bg="black" p="1" rounded="none">
+                        <div bg="black" p="1" rounded="none" className="blogcards">
                           <img style={{ height: "100px", float: "right" }} src={blog.image} />
                           <p className="blog-list">{blog.title}{"-"}{blog.date}</p>
                           <p >{blog.content.substring(0, 300)}...</p>
@@ -160,7 +163,7 @@ import Disqus from '../components/Disqus';
           <Col className="comment" xl={5}>
           <Disqus />
           </Col>
-
+          </Layout>
     </div>
 
   )
