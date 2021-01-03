@@ -13,11 +13,11 @@ export default function SocialFollow() {
         <FontAwesomeIcon icon={faLinkedin} size="3x" />
       </a>
       <a href="https://twitter.com/austine_gomez"
-        className="twitter social">
+        className="twitter social" >
         <FontAwesomeIcon icon={faTwitter} size="3x" />
       </a>
       <a href="https://github.com/agomez99"
-        className="github social">
+        className="github social" id="git">
         <FontAwesomeIcon icon={faGithub} size="3x" />
       </a>
 </div>

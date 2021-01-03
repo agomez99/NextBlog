@@ -51,8 +51,8 @@ import Layout from '../components/Layout'
       <Head>
         <title>Austines Blog</title>
       </Head>
-      <Navbar expand="lg" variant="light" bg="light">
-        <Navbar.Brand href="/">Blog</Navbar.Brand>
+      <Navbar className="nav-bar" expand="lg" >
+        <Navbar.Brand  href="/" className="brandH">Blog</Navbar.Brand>
         <Container  className="d-flex flex-row-reverse">
           <SocialFollow />
           <div bg="grey-light" text="center" p="4" rounded="none">

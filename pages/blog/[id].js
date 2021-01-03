@@ -107,7 +107,7 @@ const Blog = (props) => {
   return (
 
     <div>
-      <Navbar expand="lg" variant="light" bg="light">
+      <Navbar expand="lg" className="nav-bar">
         <Navbar.Brand href="/">Blog</Navbar.Brand>
         <Container className="d-flex flex-row-reverse">
           <SocialFollow />

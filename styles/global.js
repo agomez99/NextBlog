@@ -39,4 +39,18 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text}
 
 }
+.nav-bar{
+    background-color: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text}
+}
+#git{
+    color: ${({ theme }) => theme.text}
+
+}
+a{
+    color: ${({ theme }) => theme.text}
+
+}
+
+   
 `
