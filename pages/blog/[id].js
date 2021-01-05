@@ -22,17 +22,15 @@ import {
   TwitterShareButton,
 } from "react-share";
 const Blog = (props) => {
-
   const [blog, setBlog] = useState(null);
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
-
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [date, setDate] = useState('');
 
-  
+
   fire.auth()
     .onAuthStateChanged((user) => {
       if (user) {
@@ -58,8 +56,8 @@ const Blog = (props) => {
       .add({
         title: title,
         content: content,
-        image:image,
-        date:date,
+        image: image,
+        date: date,
       });
     setTitle('');
     setContent('');
@@ -77,14 +75,13 @@ const Blog = (props) => {
       .doc(props.id)
       .get()
       .then(result => {
-        setBlog(result.data())  
+        setBlog(result.data())
       })
-      console.log(props.id)
   }, []);
   if (!blog) {
     return (
       <div >
-      <h2 style={{fontSize:"1rem" , fontFamily:"sans-serif", textAlign:"center", marginTop:"25%"}}>Loading...</h2>
+        <h2 style={{ fontSize: "1rem", fontFamily: "sans-serif", textAlign: "center", marginTop: "25%" }}>Loading...</h2>
       </div>
     )
   }
@@ -95,14 +92,12 @@ const Blog = (props) => {
   } = router
 
   const shareButtonProps = {
-
-    url:'https://agblog.vercel.app/blog/'+props.id,
+    url: 'https://agblog.vercel.app/blog/' + props.id,
     description: "My Blog As A Developer",
     title: "My Journey As A Web Developer.",
-    image:"icon.png"
-      
+    image: "icon.png"
+
   };
-  console.log(shareButtonProps);
 
   return (
 
@@ -129,80 +124,75 @@ const Blog = (props) => {
           }
         </div>
       </Navbar>
-<Layout>
-<Row>
+      <Layout>
+        <Row>
+          <Col className="feature">
+            <h2 style={{ textAlign: "center" }}>{blog.title}</h2>
+            <h2 style={{ textAlign: "center" }}>{blog.date}</h2>
+            <img src={blog.image} className="center" style={{ height: "300px", }} />
+            <p className="blog-content-main">
+              {blog.content}
+            </p>
+            {loggedIn
+              ?
+              <form onSubmit={handleSubmit}>
+                <div>
+                  Title<br />
+                  <input type="text" value={blog.title}
+                    onChange={({ target }) => setTitle(target.value)} />
+                </div>
+                <div>
+                  Date<br />
+                  <input type="text" value={blog.date}
+                    onChange={({ target }) => setDate(target.value)} />
+                </div>
+                <div>
+                  Content<br />
+                  <textarea value={blog.content}
+                    onChange={({ target }) => setContent(target.value)} />
+                </div>
+                <div>
+                  Image Url<br />
+                  <input type="text" value={blog.image}
+                    onChange={({ target }) => setImage(target.value)} />
+                </div>
+                <button type="submit">Save</button>
+              </form>
+              :
+              <>
+              </>
+            }
+            <Link href="/">
+              <a>Back</a>
+            </Link>
+          </Col>
 
-<Col className="feature">
-      <h2 style={{textAlign:"center"}}>{blog.title}</h2>
-      <h2 style={{textAlign:"center"}}>{blog.date}</h2>
-      <img src={blog.image} className="center" style={{height:"300px", }}/>
-      <p className="blog-content-main">
-        {blog.content}
-      </p>
-
-      {loggedIn
-      ?
-      <form onSubmit={handleSubmit}>
-        <div>
-          Title<br />
-          <input type="text" value={blog.title} 
-           onChange={({target}) => setTitle(target.value)} />
-        </div>
-        <div>
-          Date<br />
-          <input type="text" value={blog.date} 
-           onChange={({target}) => setDate(target.value)} />
-        </div>
-        <div>
-          Content<br />
-          <textarea value={blog.content} 
-           onChange={({target}) => setContent(target.value)} />
-        </div>
-        <div>
-         Image Url<br />
-          <input type="text" value={blog.image} 
-           onChange={({target}) => setImage(target.value)} />
-        </div>
-        <button type="submit">Save</button>
-      </form>
-      :
-      <>
-      </>
-      }
-      
-      <Link href="/">
-        <a>Back</a>
-      </Link>
-     </Col>
-
-      </Row>
+        </Row>
       </Layout>
 
       <Col className="comment" xl={5}>
-      <div className="share-btn"{...shareButtonProps} >
-        <label>Share</label>{""}
-      <EmailShareButton key={"email"} className={"btn"}  url={window.location.href} text={shareButtonProps.text} media={shareButtonProps.media} title={title}>
-        <EmailIcon round size={50} />
-      </EmailShareButton>
-      <FacebookShareButton  key={"fb"} className={"btn"}   url={shareButtonProps.url} quote={shareButtonProps.description} title={shareButtonProps.title}  image={shareButtonProps.image}   windowWidth={660} windowHeight={700} >
-        <FacebookIcon round size={50} />
-      </FacebookShareButton>
-      <FacebookShareCount url={shareButtonProps.url} >
-      {shareCount => <span className="myShareCountWrapper">{shareCount}</span>}
-            </FacebookShareCount>
-
-      <LinkedinShareButton key={"linked"} className={"btn"} url={shareButtonProps.url} title={title}>
-        <LinkedinIcon round size={50} />
-      </LinkedinShareButton>
-      <TwitterShareButton key={"twitter"} className={"btn"} title={shareButtonProps.title} url={shareButtonProps.url}  >
-        <TwitterIcon round size={50} />
-      </TwitterShareButton>
-      <RedditShareButton key={"reddit"} className={"btn"} url={shareButtonProps.url}>
-        <RedditIcon round size={50} />
-      </RedditShareButton>
-      </div>
-      <Disqus />
-      
+        <div className="share-btn"{...shareButtonProps} >
+          <label>Share</label>{""}
+          <EmailShareButton key={"email"} className={"btn"} url={window.location.href} text={shareButtonProps.text} media={shareButtonProps.media} title={title}>
+            <EmailIcon round size={50} />
+          </EmailShareButton>
+          <FacebookShareButton key={"fb"} className={"btn"} url={shareButtonProps.url} quote={shareButtonProps.description} title={shareButtonProps.title} image={shareButtonProps.image} windowWidth={660} windowHeight={700} >
+            <FacebookIcon round size={50} />
+          </FacebookShareButton>
+          <FacebookShareCount url={shareButtonProps.url} >
+            {shareCount => <span className="myShareCountWrapper">{shareCount}</span>}
+          </FacebookShareCount>
+          <LinkedinShareButton key={"linked"} className={"btn"} url={shareButtonProps.url} title={title}>
+            <LinkedinIcon round size={50} />
+          </LinkedinShareButton>
+          <TwitterShareButton key={"twitter"} className={"btn"} title={shareButtonProps.title} url={shareButtonProps.url}  >
+            <TwitterIcon round size={50} />
+          </TwitterShareButton>
+          <RedditShareButton key={"reddit"} className={"btn"} url={shareButtonProps.url}>
+            <RedditIcon round size={50} />
+          </RedditShareButton>
+        </div>
+        <Disqus />
       </Col>
     </div>
   )
