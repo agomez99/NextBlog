@@ -169,11 +169,11 @@ const Blog = (props) => {
 
         </Row>
       </Layout>
-
+      
       <Col className="comment" xl={5}>
         <div className="share-btn"{...shareButtonProps} >
           <label>Share</label>{""}
-          <EmailShareButton key={"email"} className={"btn"} url={window.location.href} text={shareButtonProps.text} media={shareButtonProps.media} title={title}>
+          <EmailShareButton key={"email"} className={"btn"}  text={shareButtonProps.text} media={shareButtonProps.media} title={title}>
             <EmailIcon round size={50} />
           </EmailShareButton>
           <FacebookShareButton key={"fb"} className={"btn"} url={shareButtonProps.url} quote={shareButtonProps.description} title={shareButtonProps.title} image={shareButtonProps.image} windowWidth={660} windowHeight={700} >

@@ -9,8 +9,7 @@ import SocialFollow from "../SocialFollow"
 import Disqus from '../components/Disqus';
 import Layout from '../components/Layout'
 
-
-  const Home = () => {
+  const Home = (props,{photo}) => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -44,13 +43,25 @@ import Layout from '../components/Layout'
         }, 2000)
       });
   }
+
   console.log(blogs)
   return (
     
     <div>
       <Head>
         <title>Austines Blog</title>
+        <meta property="og:url" content="your url" />
+        <meta property="og:type" content="website" />
+        <meta property="fb:app_id" content="your fb id" />
+        <meta property="og:title" content={photo?.title} />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="Hurray!! Yes Social Media Preview is Working"
+        />
+        <meta property="og:image" content={photo?.url} />
       </Head>
+      
       <Navbar className="nav-bar" expand="lg" >
         <Navbar.Brand  href="/" className="brandH">Blog</Navbar.Brand>
         <Container  className="d-flex flex-row-reverse">
@@ -153,7 +164,6 @@ import Layout from '../components/Layout'
                     </div>
                   </a>
                   </Link>
-
                 )}
 
               </ul>
@@ -164,6 +174,7 @@ import Layout from '../components/Layout'
           <Disqus />
           </Col>
           </Layout>
+         
     </div>
 
   )
