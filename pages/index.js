@@ -9,7 +9,7 @@ import SocialFollow from "../SocialFollow"
 import Disqus from '../components/Disqus';
 import Layout from '../components/Layout'
 
-  const Home = (props,{photo}) => {
+  const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -53,13 +53,13 @@ import Layout from '../components/Layout'
         <meta property="og:url" content="your url" />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content="your fb id" />
-        <meta property="og:title" content="My dev blog"/>
+        <meta property="og:title" content="Blog"/>
         <meta name="twitter:card" content="summary" />
         <meta
           property="og:description"
-          content="Hurray!! Yes Social Media Preview is Working"
+          content="This a blog of my journey as developer"
         />
-        <meta property="og:image" content="https://static.wixstatic.com/media/56a444_9273e80a60684dc8b38e56025059f356%7Emv2_d_3200_1800_s_2.png"/>
+        <meta property="og:image" content="https://assets.justinmind.com/wp-content/uploads/2019/10/best-20-web-development-blogs.png"/>
       </Head>
       
       <Navbar className="nav-bar" expand="lg" >
