@@ -53,13 +53,13 @@ import Layout from '../components/Layout'
         <meta property="og:url" content="your url" />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content="your fb id" />
-        <meta property="og:title" content={photo?.title} />
+        <meta property="og:title" content="My dev blog"/>
         <meta name="twitter:card" content="summary" />
         <meta
           property="og:description"
           content="Hurray!! Yes Social Media Preview is Working"
         />
-        <meta property="og:image" content={photo?.url} />
+        <meta property="og:image" content="https://static.wixstatic.com/media/56a444_9273e80a60684dc8b38e56025059f356%7Emv2_d_3200_1800_s_2.png"/>
       </Head>
       
       <Navbar className="nav-bar" expand="lg" >
