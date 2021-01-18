@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
+import Head from 'next/head';
 
 import {
   FacebookShareCount,
@@ -102,6 +103,19 @@ const Blog = (props) => {
   return (
 
     <div>
+          <Head>
+        <title>Austines Blog</title>
+        <meta property="og:url" content="your url" />
+        <meta property="og:type" content="website" />
+        <meta property="fb:app_id" content="your fb id" />
+        <meta property="og:title" content="Blog"/>
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="This a blog of my journey as developer"
+        />
+        <meta property="og:image" content="https://assets.justinmind.com/wp-content/uploads/2019/10/best-20-web-development-blogs.png"/>
+      </Head>
       <Navbar expand="lg" className="nav-bar">
         <Navbar.Brand href="/">Blog</Navbar.Brand>
         <Container className="d-flex flex-row-reverse">
@@ -169,7 +183,7 @@ const Blog = (props) => {
 
         </Row>
       </Layout>
-      
+
       <Col className="comment" xl={5}>
         <div className="share-btn"{...shareButtonProps} >
           <label>Share</label>{""}
