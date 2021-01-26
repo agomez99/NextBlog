@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
+import PC from './images/oldman.jpg';
 
 import {
   FacebookShareCount,
@@ -112,14 +113,14 @@ const Blog = (props) => {
           property="og:description"
           content="This a blog of my journey as developer"
         />
-        <meta property="og:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
+        <meta property="og:image" content={PC}/>
       
         <meta property="fb:app_id" content="your fb id" />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Austine's Blog "/>
         <meta name="twitter:description" content="My blog as Junior Developer"/>
-        <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
+        <meta name="twitter:image" content={PC}/>
         <meta name="twitter:card" content="summary_large_image"/>
        </Head>
       <Navbar expand="lg" className="nav-bar">
