@@ -96,25 +96,29 @@ const Blog = (props) => {
     url: 'https://agblog.vercel.app/blog/' + props.id,
     description: "My Blog As A Developer",
     title: "My Journey As A Web Developer.",
-    image: "icon.png"
+    image: "https://assets.justinmind.com/wp-content/uploads/2019/10/best-20-web-development-blogs.png"
 
   };
 
   return (
 
     <div>
-          <Head>
+      <Head>
         <title>Austines Blog</title>
         <meta property="og:url" content="your url" />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content="your fb id" />
         <meta property="og:title" content="Blog"/>
         <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Todays Daily Horoscope "/>
+        <meta name="twitter:description" content=" Daily Horoscope."/>
+        <meta name="twitter:image" content="https://i.ibb.co/mcVQbxL/Z.jpg"/>
+        <meta name="twitter:card" content="summary_large_image"/>
         <meta
           property="og:description"
           content="This a blog of my journey as developer"
         />
-        <meta property="og:image" content="https://assets.justinmind.com/wp-content/uploads/2019/10/best-20-web-development-blogs.png"/>
+        <meta property="og:image" content="https://www.workiva.com/sites/workiva/files/styles/content_thumbnail_16_9/public/dev-blog-good-bad-processes-20190313-j53453.png"/>
       </Head>
       <Navbar expand="lg" className="nav-bar">
         <Navbar.Brand href="/">Blog</Navbar.Brand>
@@ -185,7 +189,7 @@ const Blog = (props) => {
       </Layout>
 
       <Col className="comment" xl={5}>
-        {/* <div className="share-btn"{...shareButtonProps} >
+        <div className="share-btn"{...shareButtonProps} >
           <label>Share</label>{""}
           <EmailShareButton key={"email"} className={"btn"}  text={shareButtonProps.text} media={shareButtonProps.media} title={title}>
             <EmailIcon round size={50} />
@@ -205,7 +209,7 @@ const Blog = (props) => {
           <RedditShareButton key={"reddit"} className={"btn"} url={shareButtonProps.url}>
             <RedditIcon round size={50} />
           </RedditShareButton>
-        </div> */}
+        </div>
         <Disqus />
       </Col>
     </div>

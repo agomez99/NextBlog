@@ -26,7 +26,6 @@ const Login = () => {
   }
   return (
     <div>
-
     <Col style={{display:"grid", justifyContent:"center" }}>
       <h1 style={{marginTop:"20%" }} >Login</h1>
       {notify}
@@ -39,7 +38,7 @@ const Login = () => {
         <br />
         <button type="submit">Login</button>
       </form>
- */}
+        */}
       <Form style={{width:"100%"}} onSubmit={handleLogin}>
 				<Form.Group controlId="formBasicEmail">
 					<Form.Label>Email address</Form.Label>
@@ -49,7 +48,6 @@ const Login = () => {
 						We'll never share your email with anyone else.
     				</Form.Text>
 				</Form.Group>
-
 				<Form.Group controlId="formBasicPassword">
 					<Form.Label>Password</Form.Label>
 					<Form.Control type="password" placeholder="Password" value={password} 
