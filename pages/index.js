@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SocialFollow from "../SocialFollow"
 import Disqus from '../components/Disqus';
 import Layout from '../components/Layout'
-import Icon from '../pages/blog/images/icon.png'
+
   const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState('');
@@ -49,21 +49,21 @@ import Icon from '../pages/blog/images/icon.png'
     
     <div>
       <Head>
-      <title>Austines Blog</title>
+        <title>Austines Blog</title>
         <meta property="og:url" content="https://agblog.vercel.app/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Blog"/>
         <meta property="og:description"
           content="This a blog of my journey as developer"
         />
-        <meta property="og:image" content={Icon}/>
+        <meta property="og:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
       
         <meta property="fb:app_id" content="134816985125175" />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Austine's Blog "/>
         <meta name="twitter:description" content="My blog as Junior Developer"/>
-        <meta name="twitter:image" content={Icon}/>
+        <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
         <meta name="twitter:card" content="summary_large_image"/>
       </Head>
       
