@@ -107,19 +107,21 @@ const Blog = (props) => {
         <title>Austines Blog</title>
         <meta property="og:url" content="your url" />
         <meta property="og:type" content="website" />
-        <meta property="fb:app_id" content="your fb id" />
         <meta property="og:title" content="Blog"/>
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Todays Daily Horoscope "/>
-        <meta name="twitter:description" content=" Daily Horoscope."/>
-        <meta name="twitter:image" content="https://i.ibb.co/mcVQbxL/Z.jpg"/>
-        <meta name="twitter:card" content="summary_large_image"/>
         <meta
           property="og:description"
           content="This a blog of my journey as developer"
         />
-        <meta property="og:image" content="https://www.workiva.com/sites/workiva/files/styles/content_thumbnail_16_9/public/dev-blog-good-bad-processes-20190313-j53453.png"/>
-      </Head>
+        <meta property="og:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
+      
+        <meta property="fb:app_id" content="your fb id" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Austine's Blog "/>
+        <meta name="twitter:description" content="My blog as Junior Developer"/>
+        <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
+        <meta name="twitter:card" content="summary_large_image"/>
+       </Head>
       <Navbar expand="lg" className="nav-bar">
         <Navbar.Brand href="/">Blog</Navbar.Brand>
         <Container className="d-flex flex-row-reverse">
