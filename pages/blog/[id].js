@@ -96,7 +96,7 @@ const Blog = (props) => {
     url: 'https://agblog.vercel.app/blog/' + props.id,
     description: "My Blog As A Developer",
     title: "My Journey As A Web Developer.",
-    image: "https://assets.justinmind.com/wp-content/uploads/2019/10/best-20-web-development-blogs.png"
+    image: "https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"
 
   };
 
