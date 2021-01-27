@@ -65,6 +65,7 @@ import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
         <meta name="twitter:description" content="My blog as Junior Developer"/>
         <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
         <meta name="twitter:card" content="summary_large_image"/>
+        
       </Head>
       
       <Navbar className="nav-bar" expand="lg" >
