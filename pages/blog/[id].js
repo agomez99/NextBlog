@@ -186,9 +186,9 @@ const Blog = (props) => {
       <Col className="comment" xl={5}>
       <div className="shareDiv" style={{ display:"flex", justifyContent:"center" }}>
               <label>Share</label>
-              <Twitter link={"https://agblog.vercel.app/blog"+props.id} />   
-              <Facebook  link={"https://agblog.vercel.app/blog"+props.id} /> 
-              <Linkedin  link={"https://agblog.vercel.app/blog"+props.id} />              
+              <Twitter link={"https://agblog.vercel.app/blog/"+props.id} />   
+              <Facebook  link={"https://agblog.vercel.app/blog/"+props.id} /> 
+              <Linkedin  link={"https://agblog.vercel.app/blog/"+props.id} />              
             </div>
         <Disqus />
       </Col>
