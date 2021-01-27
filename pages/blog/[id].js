@@ -8,10 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
-import Icon from './images/icon.png';
+import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
 
 import {
-  FacebookShareCount,
   EmailShareButton,
   EmailIcon,
   FacebookShareButton,
@@ -93,13 +92,7 @@ const Blog = (props) => {
     query: { id },
   } = router
 
-  const shareButtonProps = {
-    url: 'https://agblog.vercel.app/blog/' + props.id,
-    description: "My Blog As A Developer",
-    title: "My Journey As A Web Developer.",
-    image: "https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"
-
-  };
+// console.log(props.id)
 
   return (
 
@@ -191,27 +184,12 @@ const Blog = (props) => {
       </Layout>
 
       <Col className="comment" xl={5}>
-        <div className="share-btn"{...shareButtonProps} >
-          <label>Share</label>{""}
-          <EmailShareButton key={"email"} className={"btn"}  text={shareButtonProps.text} media={shareButtonProps.media} title={title}>
-            <EmailIcon round size={50} />
-          </EmailShareButton>
-          <FacebookShareButton key={"fb"} className={"btn"} url={shareButtonProps.url} quote={shareButtonProps.description} title={shareButtonProps.title} image={shareButtonProps.image} windowWidth={660} windowHeight={700} >
-            <FacebookIcon round size={50} />
-          </FacebookShareButton>
-          <FacebookShareCount url={shareButtonProps.url} >
-            {shareCount => <span className="myShareCountWrapper">{shareCount}</span>}
-          </FacebookShareCount>
-          <LinkedinShareButton key={"linked"} className={"btn"} url={shareButtonProps.url} title={title}>
-            <LinkedinIcon round size={50} />
-          </LinkedinShareButton>
-          <TwitterShareButton key={"twitter"} className={"btn"} title={shareButtonProps.title} url={shareButtonProps.url}  >
-            <TwitterIcon round size={50} />
-          </TwitterShareButton>
-          <RedditShareButton key={"reddit"} className={"btn"} url={shareButtonProps.url}>
-            <RedditIcon round size={50} />
-          </RedditShareButton>
-        </div>
+      <div className="shareDiv" style={{ display:"flex", justifyContent:"center" }}>
+              <label>Share</label>
+              <Twitter link={"https://agblog.vercel.app/" + props.id} />   
+              <Facebook  link={"https://agblog.vercel.app/" + props.id} /> 
+              <Linkedin  link={"https://agblog.vercel.app/" + props.id} />              
+            </div>
         <Disqus />
       </Col>
     </div>
