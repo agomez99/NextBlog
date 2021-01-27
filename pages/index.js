@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SocialFollow from "../SocialFollow"
 import Disqus from '../components/Disqus';
 import Layout from '../components/Layout'
+import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
 
   const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -44,13 +45,12 @@ import Layout from '../components/Layout'
       });
   }
 
-  console.log(blogs)
   return (
     
     <div>
       <Head>
         <title>Austines Blog</title>
-        <meta property="og:url" content="https://agblog.vercel.app/" />
+        <meta property="og:url" content="https://agblog.vercel.app/"/>
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Blog"/>
         <meta property="og:description"
@@ -61,7 +61,7 @@ import Layout from '../components/Layout'
         <meta property="fb:app_id" content="134816985125175" />
 
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Austine's Blog "/>
+        <meta name="twitter:title" content="Austine's Blog"/>
         <meta name="twitter:description" content="My blog as Junior Developer"/>
         <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
         <meta name="twitter:card" content="summary_large_image"/>
@@ -176,6 +176,12 @@ import Layout from '../components/Layout'
             </Col>
           </Row>
           <Col className="comment" xl={5}>
+          <div className="shareDiv" style={{ display:"flex", justifyContent:"center" }}>
+              <label>Share</label>
+              <Twitter link={"https://agblog.vercel.app/blog/"+blogs[0].id} />   
+              <Facebook  link={"https://agblog.vercel.app/blog/"+blogs[0].id} /> 
+              <Linkedin  link={"https://agblog.vercel.app/blog/"+blogs[0].id} />              
+            </div>
           <Disqus />
           </Col>
           </Layout>
