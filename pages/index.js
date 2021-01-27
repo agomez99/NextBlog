@@ -178,9 +178,9 @@ import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
           <Col className="comment" xl={5}>
           <div className="shareDiv" style={{ display:"flex", justifyContent:"center" }}>
               <label>Share</label>
-              <Twitter link={"https://agblog.vercel.app/blog/"+blogs[0].id} />   
-              <Facebook  link={"https://agblog.vercel.app/blog/"+blogs[0].id} /> 
-              <Linkedin  link={"https://agblog.vercel.app/blog/"+blogs[0].id} />              
+              <Twitter link={"https://agblog.vercel.app/"} />   
+              <Facebook  link={"https://agblog.vercel.app/"} /> 
+              <Linkedin  link={"https://agblog.vercel.app/"} />              
             </div>
           <Disqus />
           </Col>
