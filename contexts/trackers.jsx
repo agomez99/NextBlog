@@ -1,9 +1,10 @@
-import React from  'react';
+
+import React, { useState, useEffect } from  'react';
+import Router from 'next/router'
 
 const TrackingID = 'G-B3BS32ER2W';
-
-
 const TrackingContext = React.createContext();
+
 function TrackingProvider(props) {
     // if the userId is passed in, we'll need to keep track of any
     // login/logout changes
@@ -83,25 +84,6 @@ function TrackingProvider(props) {
         }
     }, [userIdThatMightChange])
     
-
-    function TrackingProvider(props) {
-        // We'll define our logEvent function before useEffect
-        const logEvent = ({ category = '', action = '', label = '' }) => {
-          if (analytics.isInitialized) {
-              ReactGA.event({
-              category,
-              action,
-              label
-              }, analytics.trackers)
-          }
-        }
-        useEffect(() => {
-        })
-        return <TrackingContext.Provider 
-            value={{ logEvent, addTracker, removeTracker }}
-            {...props}
-            />
-    }
     return <TrackingContext.Provider {...props} />
 }
 

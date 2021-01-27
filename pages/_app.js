@@ -5,9 +5,9 @@ import { TrackingProvider } from '../contexts/trackers'
 function MyApp({ Component, pageProps }) {
   return (
   <ThemeProvider>
-    <TrackingProvider>
+    {/* <TrackingProvider> */}
       <Component {...pageProps} />
-    </TrackingProvider>
+    {/* </TrackingProvider> */}
   </ThemeProvider>
   )
 }
