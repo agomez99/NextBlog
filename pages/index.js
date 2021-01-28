@@ -9,6 +9,7 @@ import SocialFollow from "../SocialFollow"
 import Disqus from '../components/Disqus';
 import Layout from '../components/Layout'
 import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
+import GoogleAnalytics from "../components/googleAnalytics.js"
 
   const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -67,7 +68,8 @@ import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
         <meta name="twitter:card" content="summary_large_image"/>
         
       </Head>
-      
+      <GoogleAnalytics />
+
       <Navbar className="nav-bar" expand="lg" >
         <Navbar.Brand  href="/" className="brandH">Blog</Navbar.Brand>
         <Container  className="d-flex flex-row-reverse">
