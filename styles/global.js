@@ -51,6 +51,8 @@ a{
     color: ${({ theme }) => theme.text}
 
 }
-
+.navbar-light .navbar-brand{
+ color: ${({ theme }) => theme.text}
+}
    
 `

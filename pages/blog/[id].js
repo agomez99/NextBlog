@@ -118,7 +118,7 @@ const Blog = (props) => {
         <meta property="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
        </Head>
       <Navbar expand="lg" className="nav-bar">
-        <Navbar.Brand href="/">Blog</Navbar.Brand>
+        <Navbar.Brand href="/">Blog Home</Navbar.Brand>
         <Container className="d-flex flex-row-reverse">
           <SocialFollow />
         </Container>

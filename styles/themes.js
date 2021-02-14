@@ -7,5 +7,6 @@ export const lightTheme = {
     body: '#101010',
     text: '#FAFAFA',
     card:'purple',
+    button:'purple',
   }
 
