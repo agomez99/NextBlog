@@ -140,3 +140,11 @@ a.card:hover {
  .brand{
    color:white;
  }
+ .spotify{
+   display:flex;
+
+ }
+ .spotify-img{
+   display: inline-flex;
+   margin: auto;
+ }

@@ -9,7 +9,10 @@ import Disqus from '../../components/Disqus';
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faArrowLeft
+  } from "@fortawesome/free-solid-svg-icons";
 import {
   EmailShareButton,
   EmailIcon,
@@ -176,8 +179,14 @@ const Blog = (props) => {
               </>
             }
             <Link href="/">
-              <a>Back</a>
+              <a><p1>Back</p1>
+              <FontAwesomeIcon  icon={faArrowLeft } size = '3x'/></a>
+
             </Link>
+            <p style={{textAlign:"center"}}>Currently listening to</p>
+            <div className="spotify">
+            <img src="https://spotify-now-playing-woad.vercel.app/api/spotify-playing" className="spotify-img" lt="Spotify Now Playing" width="50%"/>
+            </div>
           </Col>
 
         </Row>
