@@ -55,7 +55,7 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Blog"/>
         <meta property="og:description"
-          content="This a blog of my journey as developer"
+          content="My blog as developer"
         />
         <meta property="og:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
       
@@ -63,7 +63,7 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Austine's Blog"/>
-        <meta name="twitter:description" content={blogs.title}/>
+        <meta name="twitter:description" content="My blog as Junior Developer"/>
         <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
         <meta name="twitter:card" content="summary_large_image"/>
         
