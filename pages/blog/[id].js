@@ -112,10 +112,10 @@ const Blog = (props) => {
       
         <meta property="fb:app_id" content="134816985125175" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Austine's Blog "/>
-        <meta name="twitter:description" content="My blog as Junior Developer"/>
-        <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Austine's Blog "/>
+        <meta property="twitter:description" content="My blog as Junior Developer"/>
+        <meta property="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
        </Head>
       <Navbar expand="lg" className="nav-bar">
         <Navbar.Brand href="/">Blog</Navbar.Brand>
