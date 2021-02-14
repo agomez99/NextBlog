@@ -119,8 +119,12 @@ a.github {
 
 .card {
   margin-top: 3%;
-}
 
+}
+.blog-cards{
+  display: inline-block;
+  margin-left:"auto";
+}
 .comment {
   display: block;
   margin-left: auto;

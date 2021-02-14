@@ -45,6 +45,7 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
         }, 2000)
       });
   }
+console.log(blogs[0])
 
   return (
     
@@ -164,9 +165,10 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
                     <div className="card-body">
                       <li key={blog.id} >
                         <div bg="black" p="1" rounded="none" className="blogcards">
-                          <img style={{ height: "100px", float: "right" }} src={blog.image} />
-                          <p className="blog-list">{blog.title}{"-"}{blog.date}</p>
-                          <p >{blog.content.substring(0, 300)}...</p>
+                          <img style={{ height: "100px", display:"block", marginLeft:"auto", marginRight:"auto" }} src={blog.image} />
+                          <p className="blog-list" style={{textAlign:"center"}}>{blog.title}{"-"}</p>
+                          <p>{blog.date}</p>
+                          <p >{blog.content.substring(0, 200)}...</p>
                         </div>
                       </li>
                     </div>
