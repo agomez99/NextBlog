@@ -1,5 +1,6 @@
 import  { Component, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import fire from '../config/fire-config';
 
 // import Heart from "react-animated-heart";
 const React = require("react")

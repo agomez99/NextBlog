@@ -34,6 +34,7 @@ const Blog = (props) => {
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [date, setDate] = useState('');
+  const [likes, setLikes] = useState('');
 
 
   fire.auth()
@@ -63,11 +64,13 @@ const Blog = (props) => {
         content: content,
         image: image,
         date: date,
+        likes: likes,
       });
     setTitle('');
     setContent('');
     setImage('');
     setDate('');
+    setLikes('');
     setNotification('Blogpost changed');
     setTimeout(() => {
       setNotification('')
@@ -183,6 +186,8 @@ const Blog = (props) => {
               <FontAwesomeIcon  icon={faArrowLeft } size = '3x'/></a>
             </Link>
             <div className="like-btn">
+            <h2 style={{ textAlign: "center" }}>{blog.likes}{"   "}Likes </h2>
+
             <MyButtton  style={{paddingRight:"5%"}}/>
             </div>
             <p style={{textAlign:"center"}}>Currently listening to</p>

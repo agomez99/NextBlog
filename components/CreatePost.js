@@ -5,6 +5,8 @@ const CreatePost = () => {
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [date, setDate] = useState('');
+  const [likes, setLikes] = useState('');
+
 
   const [notification, setNotification] = useState('');
   const handleSubmit = (event) => {
@@ -16,11 +18,14 @@ const CreatePost = () => {
         content: content,
         image:image,
         date:date,
+        likes:likes,
+
       });
     setTitle('');
     setContent('');
     setImage('');
     setDate('');
+    setLikes('');
     setNotification('Blogpost created');
     setTimeout(() => {
       setNotification('')
@@ -50,6 +55,11 @@ const CreatePost = () => {
          Image Url<br />
           <input type="text" value={image} 
            onChange={({target}) => setImage(target.value)} />
+        </div>
+        <div>
+         Like count<br />
+          <input type="text" value={likes} 
+           onChange={({target}) => setLikes(target.value)} />
         </div>
         <button type="submit">Save</button>
       </form>
