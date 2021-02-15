@@ -168,7 +168,7 @@ console.log(blogs[0])
                           <img style={{ height: "100px", display:"block", marginLeft:"auto", marginRight:"auto" }} src={blog.image} />
                           <p className="blog-list" style={{textAlign:"center"}}>{blog.title}{"-"}</p>
                           <p>{blog.date}</p>
-                          <p >{blog.content.substring(0, 200)}...</p>
+                          <p >{blog.content.substring(0, 100)}...</p>
                         </div>
                       </li>
                     </div>
@@ -180,6 +180,7 @@ console.log(blogs[0])
             </div>
             </Col>
           </Row>
+          
           <Col className="comment" xl={5}>
           <div className="shareDiv" style={{ display:"flex", justifyContent:"center" }}>
               <label>Share</label>

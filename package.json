@@ -10,6 +10,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.13",
     "@material-ui/core": "^4.11.2",
@@ -21,6 +22,7 @@
     "next-images": "^1.7.0",
     "next-themes": "0.0.10",
     "react": "^17.0.1",
+    "react-animated-heart": "0.0.5",
     "react-bootstrap": "^1.4.0",
     "react-custom-share": "^0.4.8",
     "react-dark-mode-toggle": "0.0.10",

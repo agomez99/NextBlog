@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import fire from '../../config/fire-config';
-import CreatePost from '../../components/CreatePost';
+import Layout from '../../components/Layout';
 import Link from 'next/link';
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SocialFollow from "../../SocialFollow"
-import Disqus from '../../components/Disqus';
-import ReactDOM from "react-dom";
 
 
   const blogindex = () => {
@@ -90,6 +88,8 @@ import ReactDOM from "react-dom";
         </Container>
        
       </Navbar>
+      <Layout>
+
       <Row>
 
           <Col xl={12}>
@@ -121,7 +121,7 @@ import ReactDOM from "react-dom";
             </Col>
           </Row>
 
-
+          </Layout>
     </div>
 
   )

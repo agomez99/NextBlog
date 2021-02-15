@@ -6,6 +6,7 @@ import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import SocialFollow from '../../SocialFollow'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
+import MyButtton from '../../components/Like';
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
@@ -180,8 +181,10 @@ const Blog = (props) => {
             <Link href="/">
               <a><p1>Back</p1>
               <FontAwesomeIcon  icon={faArrowLeft } size = '3x'/></a>
-
             </Link>
+            <div className="like-btn">
+            <MyButtton  style={{paddingRight:"5%"}}/>
+            </div>
             <p style={{textAlign:"center"}}>Currently listening to</p>
             <div className="spotify">
             <img src="https://spotify-now-playing-woad.vercel.app/api/spotify-playing" className="spotify-img" lt="Spotify Now Playing" width="50%"/>
@@ -191,7 +194,7 @@ const Blog = (props) => {
         </Row>
       </Layout>
 
-      <Col className="comment" xl={5}>
+      <Col className="comment" xl={5}>            
       <div className="shareDiv" style={{ display:"flex", justifyContent:"center" }}>
               <label>Share</label>
               <Twitter link={"https://agblog.vercel.app/blog/"+props.id} />   
