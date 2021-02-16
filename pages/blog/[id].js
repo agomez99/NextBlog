@@ -7,6 +7,8 @@ import SocialFollow from '../../SocialFollow'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
 import MyButtton from '../../components/Like';
+import Likes from '../../components/Likes';
+
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
@@ -186,9 +188,9 @@ const Blog = (props) => {
               <FontAwesomeIcon  icon={faArrowLeft } size = '3x'/></a>
             </Link>
             <div className="like-btn">
-            <h2 style={{ textAlign: "center" }}>{blog.likes}{"   "}Likes </h2>
-
-            <MyButtton  style={{paddingRight:"5%"}}/>
+            {/* <h2 style={{ textAlign: "center" }}>{blog.likes}{"   "}Likes </h2> */}
+            <Likes />
+            {/* <MyButtton  style={{paddingRight:"5%"}}/> */}
             </div>
             <p style={{textAlign:"center"}}>Currently listening to</p>
             <div className="spotify">
