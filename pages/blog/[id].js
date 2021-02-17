@@ -57,6 +57,27 @@ const Blog = (props) => {
         date: date,
         upvotes: upvotes,
       });
+    setTitle('');
+    setContent('');
+    setImage('');
+    setDate('');
+    setUpvotes('');
+    setNotification('Blogpost changed');
+    setTimeout(() => {
+      setNotification('')
+    }, 2000)
+  }
+const handleEdit =(event) =>{
+    event.preventDefault();
+    fire.firestore()
+      .collection('blog')
+      .add({
+        title: title,
+        content: content,
+        image: image,
+        date: date,
+        upvotes: upvotes,
+      });
     setTitle({title});
     setContent('');
     setImage('');
@@ -68,28 +89,6 @@ const Blog = (props) => {
     }, 2000)
   }
 
-const handleEdit =(event) =>{
-  event.preventDefault();
-  fire.firestore()
-    .collection('blog')
-    .add({
-      title: title,
-      content: content,
-      image: image,
-      date: date,
-      upvotes: upvotes,
-    });
-  setTitle({title});
-  setContent('');
-  setImage('');
-  setDate('');
-  setUpvotes('');
-  setNotification('Blogpost changed');
-  setTimeout(() => {
-    setNotification('')
-  }, 2000)
-
-}
   useEffect(() => {
     fire.firestore()
       .collection('blog')

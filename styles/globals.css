@@ -77,7 +77,10 @@ h1 {
   color: rgb(8, 8, 8);
   background-color: rgb(255, 246, 246);
   margin-top: 10%;
-  
+  margin-left:10%;
+  margin-right:10%;
+}
+.newblog{
 }
 .blog-content-main{
   margin-top: 5%;

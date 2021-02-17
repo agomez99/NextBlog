@@ -44,77 +44,80 @@ const newblog = () => {
         });
     }
         return (
-            <div>
-               <Navbar expand="lg" variant="light" bg="light">
+    <div>
+      <Navbar expand="lg" variant="light" bg="light">
         <Navbar.Brand href="/">Blog</Navbar.Brand>
-        <Container  className="d-flex flex-row-reverse">
+        <Container className="d-flex flex-row-reverse">
           <div bg="grey-light" text="center" p="4" rounded="none">
-          {notification}
-          {!loggedIn
-            ?
-            <div>
-              <Link href="/users/login">
-                <a style={{ float: "left" }}> Login</a>
-              </Link>
+            {notification}
+            {!loggedIn
+              ?
+              <div>
+                <Link href="/users/login">
+                  <a style={{ float: "left" }}> Login</a>
+                </Link>
 
-            </div>
-            :
-            <button onClick={handleLogout}>Logout</button>
-          }
-        </div>
-        <div bg="grey-light" text="center" p="4" rounded="none">
-          {notification}
-          {loggedIn
-            ?
-            <div>
-              <Link href="/users/newblog">
-                <a style={{ float: "left" }}> New blog</a>
-              </Link>
-            </div>
-            :
-            <>
-            </>
-          }
-        </div>
+              </div>
+              :
+              <button onClick={handleLogout}>Logout</button>
+            }
+          </div>
+          <div bg="grey-light" text="center" p="4" rounded="none">
+            {notification}
+            {loggedIn
+              ?
+              <div>
+                      <Link href="/users/newblog">
+                        <a style={{ float: "left" }}> New blog</a>
+                      </Link>
+                      <Link href="/">
+                        <a>Blogs</a>
+                      </Link>
+              </div>
+              :
+              <>
+              </>
+            }
+          </div>
         </Container>
-       
       </Navbar>
-                <Row>
-                    <Col xl={6}>
-                        <CreatePost />
-                        <Link href="/">
-                            <a>Blogs</a>
-                        </Link>
-                    </Col>
-                    <Col xl={6}>
-                        <div className="blog-content" text="left" p="5" rounded="none">
-                            <ul >
-                                {blogs.slice(1, 20).map(blog =>
-                                    <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                                        <a className="card">
-                                            <div className="card-body">
-                                                <li key={blog.id} >
-                                                    <div bg="black" p="1" rounded="none">
-                                                        <img style={{ height: "50px", float: "right" }} src={blog.image} />
-                                                        <p className="blog-list">{blog.title}{"-"}{blog.date}</p>
+      <Row >
+        {loggedIn ?
+          <Col m={6} className="newblog">
+            <div className="blog-content" text="left" p="5" rounded="none">
+            <CreatePost />
+              <ul >
+                {blogs.slice(1, 20).map(blog =>
+                  <Link href="/blog/[id]" as={'/blog/' + blog.id}>
+                    <a className="card">
+                      <div className="card-body">
+                        <li key={blog.id} >
+                          <div bg="black" p="1" rounded="none">
+                            <img style={{ height: "50px", float: "right" }} src={blog.image} />
+                            <p className="blog-list">{blog.title}{"-"}{blog.date}</p>
 
-                                                        <p >{blog.content.substring(0, 100)}...</p>
-                                                        <Button variant="danger" >Delete</Button>
+                            <p >{blog.content.substring(0, 100)}...</p>
+                            <Button  variant="danger" >Delete</Button>
 
-                                                    </div>
-                                                </li>
-                                            </div>
-                                        </a>
-                                    </Link>
-                                )}
-                            </ul>
-                        </div>
-
-                    </Col>
-                </Row>
+                          </div>
+                        </li>
+                      </div>
+                    </a>
+                  </Link>
+                )}
+              </ul>
             </div>
-        )
-    }
+          </Col>
+
+          :
+          <Link href="/users/login">
+                  <a style={{ float: "left" }}> Login</a>
+                </Link>
+        }
+      </Row>
+    </div>
+  )
+}
 
 
 export default newblog
