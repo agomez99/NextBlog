@@ -1,12 +1,13 @@
-import React, { useReducer } from "react";
+import { faBlog } from "@fortawesome/free-solid-svg-icons";
+import React, { useReducer, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import fire from '../config/fire-config';
 
 const HANDLE_LIKE = Symbol("HANDLE_LIKE");
 const HANDLE_DISLIKE = Symbol("HANDLE_DISLIKE");
 const initialState = {
-  likes: 100,
-  dislikes: 12,
+  likes: 0,
+  dislikes: 1,
   active: null
 };
 
@@ -35,9 +36,30 @@ const reducer = (state, action) => {
 };
 
 const Likes = (props) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
-  const [likes, setLikes] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [blog, setBlog] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [upvotes, setUpvotes] = useState('');
 
+
+  fire.auth()
+    .onAuthStateChanged((user) => {
+      if (user) {
+        setLoggedIn(true)
+      } else {
+        setLoggedIn(false)
+      }
+    })
+
+    useEffect(() => {
+      fire.firestore()
+        .collection('blog')
+        .doc(props.id)
+        .get()
+        .then(result => {
+          setBlog(result.data())
+        })
+    }, []);
   const { likes, dislikes, active } = state;
   return (
     <div style={{ display: "flex" }}>
@@ -52,7 +74,7 @@ const Likes = (props) => {
       >
         <strong>Likes</strong>
         &nbsp;|&nbsp;
-        {likes}
+        {upvotes}
       </button>
       <button
         style={{ color: active === "dislike" ? "red" : "black" }}

@@ -5,7 +5,7 @@ const CreatePost = () => {
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [date, setDate] = useState('');
-  const [likes, setLikes] = useState('');
+  const [upvotes, setUpvotes] = useState('');
 
 
   const [notification, setNotification] = useState('');
@@ -18,14 +18,14 @@ const CreatePost = () => {
         content: content,
         image:image,
         date:date,
-        likes:likes,
+        upvotes:upvotes,
 
       });
     setTitle('');
     setContent('');
     setImage('');
     setDate('');
-    setLikes('');
+    setUpvotes('');
     setNotification('Blogpost created');
     setTimeout(() => {
       setNotification('')
@@ -58,8 +58,8 @@ const CreatePost = () => {
         </div>
         <div>
          Like count<br />
-          <input type="text" value={likes} 
-           onChange={({target}) => setLikes(target.value)} />
+          <input type="text" value={upvotes} 
+           onChange={({target}) => setUpvotes(target.value)} />
         </div>
         <button type="submit">Save</button>
       </form>

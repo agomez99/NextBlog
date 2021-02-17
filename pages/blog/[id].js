@@ -16,18 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faArrowLeft
   } from "@fortawesome/free-solid-svg-icons";
-import {
-  EmailShareButton,
-  EmailIcon,
-  FacebookShareButton,
-  FacebookIcon,
-  LinkedinShareButton,
-  RedditShareButton,
-  RedditIcon,
-  TwitterIcon,
-  LinkedinIcon,
-  TwitterShareButton,
-} from "react-share";
+
 const Blog = (props) => {
   const [blog, setBlog] = useState(null);
   const [notification, setNotification] = useState('');
@@ -36,7 +25,7 @@ const Blog = (props) => {
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [date, setDate] = useState('');
-  const [likes, setLikes] = useState('');
+  const [upvotes, setUpvotes] = useState('');
 
 
   fire.auth()
@@ -66,19 +55,41 @@ const Blog = (props) => {
         content: content,
         image: image,
         date: date,
-        likes: likes,
+        upvotes: upvotes,
       });
-    setTitle('');
+    setTitle({title});
     setContent('');
     setImage('');
     setDate('');
-    setLikes('');
+    setUpvotes('');
     setNotification('Blogpost changed');
     setTimeout(() => {
       setNotification('')
     }, 2000)
   }
 
+const handleEdit =(event) =>{
+  event.preventDefault();
+  fire.firestore()
+    .collection('blog')
+    .add({
+      title: title,
+      content: content,
+      image: image,
+      date: date,
+      upvotes: upvotes,
+    });
+  setTitle({title});
+  setContent('');
+  setImage('');
+  setDate('');
+  setUpvotes('');
+  setNotification('Blogpost changed');
+  setTimeout(() => {
+    setNotification('')
+  }, 2000)
+
+}
   useEffect(() => {
     fire.firestore()
       .collection('blog')
@@ -176,6 +187,10 @@ const Blog = (props) => {
                   Image Url<br />
                   <input type="text" value={blog.image}
                     onChange={({ target }) => setImage(target.value)} />
+                </div>           <div>
+                  Likes<br />
+                  <input type="text" value={blog.upvotes}
+                    onChange={({ target }) => setUpvotes(target.value)} />
                 </div>
                 <button type="submit">Save</button>
               </form>
@@ -188,7 +203,7 @@ const Blog = (props) => {
               <FontAwesomeIcon  icon={faArrowLeft } size = '3x'/></a>
             </Link>
             <div className="like-btn">
-            {/* <h2 style={{ textAlign: "center" }}>{blog.likes}{"   "}Likes </h2> */}
+            {/* <h2 style={{ textAlign: "center" }}>{blog.upvotes}{"   "}Likes </h2> */}
             <Likes />
             {/* <MyButtton  style={{paddingRight:"5%"}}/> */}
             </div>

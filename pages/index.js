@@ -45,7 +45,6 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
         }, 2000)
       });
   }
-console.log(blogs[0])
 
   return (
     
