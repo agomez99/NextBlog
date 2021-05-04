@@ -187,7 +187,8 @@ const handleEdit =(event) =>{
                   Image Url<br />
                   <input type="text" value={blog.image}
                     onChange={({ target }) => setImage(target.value)} />
-                </div>           <div>
+                </div>           
+                <div>
                   Likes<br />
                   <input type="text" value={blog.upvotes}
                     onChange={({ target }) => setUpvotes(target.value)} />
@@ -204,8 +205,8 @@ const handleEdit =(event) =>{
             </Link>
             <div className="like-btn">
             {/* <h2 style={{ textAlign: "center" }}>{blog.upvotes}{"   "}Likes </h2> */}
-            <Likes />
-            {/* <MyButtton  style={{paddingRight:"5%"}}/> */}
+            {/* <Likes /> */}
+            <MyButtton  style={{paddingRight:"5%"}}/>
             </div>
             <p style={{textAlign:"center"}}>Currently listening to</p>
             <div className="spotify">
