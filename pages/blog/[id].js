@@ -120,7 +120,7 @@ const handleEdit =(event) =>{
       <Head>
         <title>Austines Blog</title>
         <meta property="og:url" content="https://agblog.vercel.app/blog/${props.id}" />
-        <meta property="og:type" content="{blog.title}"/>
+        <meta property="og:type" content="My Blog"/>
         <meta property="og:title" content="Blog"/>
         <meta property="og:description"
           content="This a blog of my journey as developer"
@@ -220,9 +220,12 @@ const handleEdit =(event) =>{
       <Col className="comment" xl={5}>            
       <div className="shareDiv" style={{ display:"flex", justifyContent:"center" }}>
               <label>Share</label>
-              <Twitter link={"https://agblog.vercel.app/blog/"+props.id} />   
+              {/* <Twitter link={"https://agblog.vercel.app/blog/"+props.id} />   
               <Facebook  link={"https://agblog.vercel.app/blog/"+props.id} /> 
-              <Linkedin  link={"https://agblog.vercel.app/blog/"+props.id} />              
+              <Linkedin  link={"https://agblog.vercel.app/blog/"+props.id} />  */}
+              <Twitter link={"https://agblog.vercel.app"} />   
+              <Facebook  link={"https://agblog.vercel.app"} /> 
+              <Linkedin  link={"https://agblog.vercel.app"} />               
             </div>
         <Disqus />
       </Col>
