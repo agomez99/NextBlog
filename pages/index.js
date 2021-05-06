@@ -71,7 +71,7 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
       <GoogleAnalytics />
 
       <Navbar className="nav-bar" expand="lg" >
-        <Navbar.Brand style={{  fontSize:"1.4rem",textDecoration:"none" }}  href="/" className="brand">Blog</Navbar.Brand>
+        <Navbar.Brand style={{  fontSize:"1.4rem",textDecoration:"none" }}  href="/" className="brandlogo">Blog</Navbar.Brand>
         <Container  className="d-flex flex-row-reverse">
           <SocialFollow />
           <div bg="grey-light" text="center" p="4" rounded="none">
