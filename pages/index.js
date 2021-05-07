@@ -71,7 +71,7 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
       <GoogleAnalytics />
 
       <Navbar className="nav-bar" expand="lg" >
-        <Navbar.Brand style={{  fontSize:"1.4rem",textDecoration:"none" }}  href="/" className="brandlogo">Blog</Navbar.Brand>
+        <Navbar.Brand style={{  fontSize:"1.8rem",textDecoration:"none" }}  href="/" className="brandlogo">Blog</Navbar.Brand>
         <Container  className="d-flex flex-row-reverse">
           <SocialFollow />
           <div bg="grey-light" text="center" p="4" rounded="none">
@@ -83,10 +83,10 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
                     <a>Register</a>
                   </Link> |  */}
                 <Link href="/users/blogindex">
-                <a style={{ float: "left",fontSize:"1.4rem", textDecoration:"none"  }}> Blogs</a>
+                <a style={{ float: "left",fontSize:"1.2rem", textDecoration:"none"  }}> Blogs</a>
               </Link>
               <Link href="/users/login">
-                <a style={{ paddingLeft:"100px", fontSize:"1.4rem",textDecoration:"none" }}> Login</a>
+                <a style={{ paddingLeft:"100px", fontSize:"1.2rem",textDecoration:"none" }}> Login</a>
               </Link>
 
             </div>
@@ -129,13 +129,13 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
                   <div id="crosshair" className="blog-feature" text="left" p="5" rounded="none">
                   <div>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id} >
-                        <p style={{fontSize:"1.9rem", float:"left"}}>{blog.title}</p>
+                        <p style={{fontSize:"1.9rem", float:"left"}} className="glow">{blog.title}</p>
                   </Link>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id} >
-                        <p style={{fontSize:"1.9rem", float:"right"}}>{blog.date}</p>
+                        <p style={{fontSize:"1.9rem", float:"right"}}className="glow">{blog.date}</p>
                   </Link>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                      <img style={{ width: "100%" }} src={blog.image} href="/blog/[id]" as={'/blog/' + blog.id} />
+                      <img style={{ width: "100%", borderRadius:"25px" }} src={blog.image} href="/blog/[id]" as={'/blog/' + blog.id} />
                   </Link>
                   </div>
                     <div className="blog-content-main">
@@ -156,7 +156,7 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
           {loggedIn && <CreatePost />}
           </Col>
           <Col xl={4}>
-            <div className="blog-content" text="left" p="5" rounded="none">
+            <div className="blog-content" text="left" p="5" rounded="none" style={{borderRadius:"50px"}}>
               <ul >
                 {blogs.slice(1, 6).map(blog =>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id}>
@@ -164,7 +164,7 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
                     <div className="card-body">
                       <li key={blog.id} >
                         <div bg="black" p="1" rounded="none" className="blogcards">
-                          <img style={{ height: "100px", display:"block", marginLeft:"auto", marginRight:"auto" }} src={blog.image} />
+                          <img style={{ height: "100px", display:"block", marginLeft:"auto", marginRight:"auto", borderRadius:"25px" }} src={blog.image} />
                           <p className="blog-list" style={{textAlign:"center"}}>{blog.title}{"-"}</p>
                           <p>{blog.date}</p>
                           <p >{blog.content.substring(0, 100)}...</p>
