@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import fire from '../config/fire-config';
+import Layout from '../components/Layout'
 import CreatePost from '../components/CreatePost';
 import Link from 'next/link';
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SocialFollow from "../SocialFollow"
 import Disqus from '../components/Disqus';
-import Layout from '../components/Layout'
 import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
 import GoogleAnalytics from "../components/googleAnalytics.js"
 import Loading from '../components/Loading';
@@ -184,6 +184,9 @@ import Loading from '../components/Loading';
                 )}
 
               </ul>
+              <Link href="/users/blogindex">
+                <a style={{ float: "right",fontSize:"1.4rem", textDecoration:"none"   }}>More Blogs</a>
+              </Link>
             </div>
             </Col>
           </Row>

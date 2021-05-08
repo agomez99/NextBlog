@@ -78,9 +78,6 @@ h1 {
 .blog-content {
   font-size: 1rem;
   color: rgb(8, 8, 8);
-  background-color: rgb(255, 246, 246);
-  margin-top: 10%;
-  
 }
 .blog-content-main{
   margin-top: 5%;
@@ -92,6 +89,11 @@ h1 {
   transform: translateY(-10px);
   font-family: Roboto;
 
+}
+.blogs{
+  background-color: rgb(198, 124, 248);
+border-radius: 5px;
+margin-bottom: 20px;
 }
 .blogs:hover {
   transform: translateY(10px);
@@ -143,6 +145,7 @@ a.github {
 
 .card {
   margin-top: 3%;
+  background-color: rgb(198, 124, 248);
 
 }
 .blog-cards{

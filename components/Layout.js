@@ -28,7 +28,7 @@ function Layout({ children }) {
   return (
     // This will pass `theme` from `ThemeProvider` as a prop into `GlobalStyles`
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-          <div style={{display:"flex", justifyContent:"flex-end", marginRight:"15%"}}>
+          <div style={{display:"flex", justifyContent:"flex-end"}}>
 
 
         <DarkModeToggle
