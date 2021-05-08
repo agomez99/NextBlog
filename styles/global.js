@@ -75,4 +75,24 @@ a{
     text-shadow:  ${({ theme }) => theme.shadow2}
   }
 }
+
+
+.glowhead {
+  font-size: 3rem;
+  color: ${({ theme }) => theme.text}
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: ${({ theme }) => theme.headshadow}
+  }
+  to {
+    text-shadow:  ${({ theme }) => theme.headshadow2}
+  }
+}
+
 `

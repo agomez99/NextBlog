@@ -123,7 +123,7 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
       <Row>
       <Col className="Col" xl={6}>
           <div className="col-xl">
-            <h1 className="glow" style={{marginBottom:"10%"}}>Welome to my blog!</h1>
+            <h1 className="glowhead" style={{marginBottom:"10%"}}>Welome to my blog!</h1>
             <div className="card1">
               <div className="card-body1">
                 {blogs.slice(0, 1).map(blog =>
