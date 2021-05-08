@@ -32,11 +32,12 @@ function Layout({ children }) {
 
 
         <DarkModeToggle
+        style={{paddingRight:"50px"}}
       onChange={setDarkMode}
       checked={darkMode}
       size={100}
     />
-              {darkMode ? 'Light on!' : 'Lights off!'}
+              {darkMode ? '💡Light on!' : '🌙Lights off!'}
       </div>
       <GlobalStyles />
       {children}

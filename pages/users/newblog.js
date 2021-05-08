@@ -82,9 +82,7 @@ const newblog = () => {
                 <Row>
                     <Col xl={6}>
                         <CreatePost />
-                        <Link href="/">
-                            <a>Blogs</a>
-                        </Link>
+
                     </Col>
                     <Col xl={6}>
                         <div className="blog-content" text="left" p="5" rounded="none">
