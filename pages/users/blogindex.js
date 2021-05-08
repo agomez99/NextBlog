@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import fire from '../../config/fire-config';
 import Layout from '../../components/Layout';
+import Loading from '../../components/Loading';
 import Link from 'next/link';
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,6 +32,14 @@ import SocialFollow from "../../SocialFollow"
         setBlogs(blogs);
       });
   }, []);
+  if (!blogs) {
+    return (
+      <div >
+       <Loading/>
+      </div>
+    )
+  }
+  
   const handleLogout = () => {
     fire.auth()
       .signOut()
@@ -41,6 +50,7 @@ import SocialFollow from "../../SocialFollow"
         }, 2000)
       });
   }
+  
   return (
     <div>
       <Head>
@@ -96,6 +106,7 @@ import SocialFollow from "../../SocialFollow"
 
             <div className="blog-content" text="left" p="5" rounded="none">
             <h1>All Blogs</h1>
+            
               <ul >
                 {blogs.slice(1, 100).map(blog =>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id}>

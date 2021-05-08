@@ -10,6 +10,7 @@ import Disqus from '../components/Disqus';
 import Layout from '../components/Layout'
 import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
 import GoogleAnalytics from "../components/googleAnalytics.js"
+import Loading from '../components/Loading';
 
   const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -45,7 +46,13 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
         }, 2000)
       });
   }
-
+  if (!blogs) {
+    return (
+      <div >
+        <h2 style={{ fontSize: "1rem", fontFamily: "sans-serif", textAlign: "center" }}>Loading...<Loading/></h2>
+      </div>
+    )
+  }
   return (
     
     <div>

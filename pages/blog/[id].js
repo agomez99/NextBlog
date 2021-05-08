@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
 import MyButtton from '../../components/Like';
 import Likes from '../../components/Likes';
-
+import Loading from '../../components/Loading'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
@@ -102,7 +102,7 @@ const handleEdit =(event) =>{
   if (!blog) {
     return (
       <div >
-        <h2 style={{ fontSize: "1rem", fontFamily: "sans-serif", textAlign: "center", marginTop: "25%" }}>Loading...</h2>
+        <h2 style={{ fontSize: "1rem", fontFamily: "sans-serif", textAlign: "center" }}>Loading...<Loading/></h2>
       </div>
     )
   }
