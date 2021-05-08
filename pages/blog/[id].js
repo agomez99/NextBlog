@@ -140,20 +140,26 @@ const handleEdit =(event) =>{
           <SocialFollow />
         </Container>
         <div bg="grey-light" text="center" p="4" rounded="none">
-          {notification}
+        {notification}
           {!loggedIn
             ?
             <div>
               {/* <Link href="/users/register">
                     <a>Register</a>
                   </Link> |  */}
-              <Link href="/users/login">
-                <a style={{ float: "left" }}> Login</a>
+                <Link href="/users/blogindex">
+                <a style={{ float: "left",fontSize:"1.2rem", textDecoration:"none"  }}> Blogs</a>
               </Link>
+              <Link href="/users/login">
+                <a style={{ paddingLeft:"100px", fontSize:"1.2rem",textDecoration:"none" }}> Login</a>
+              </Link>
+
             </div>
             :
             <button onClick={handleLogout}>Logout</button>
+
           }
+          
         </div>
       </Navbar>
       <Layout>

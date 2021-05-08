@@ -164,7 +164,7 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
                     <div className="card-body">
                       <li key={blog.id} >
                         <div bg="black" p="1" rounded="none" className="blogcards">
-                          <img style={{ height: "100px", display:"block", marginLeft:"auto", marginRight:"auto", borderRadius:"25px" }} src={blog.image} />
+                          <img style={{ height: "100px", display:"block", marginLeft:"auto", marginRight:"auto", borderRadius:"5px" }} src={blog.image} />
                           <p className="blog-list" style={{textAlign:"center"}}>{blog.title}{"-"}</p>
                           <p>{blog.date}</p>
                           <p >{blog.content.substring(0, 100)}...</p>
