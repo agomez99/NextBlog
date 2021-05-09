@@ -108,19 +108,18 @@ const blogindex = () => {
                         <div className="blogs">
                           <div className="card-body">
                             <li key={blog.id}>
-                              <div bg="black" p="1" rounded="none">
                                 <img
-                                  style={{ height: "100px", float: "right" }}
+                                  style={{ height: "100px" }}
                                   src={blog.image}
                                 />
-                                <p className="blog-list">
+                                <p  style={{textOverflow:"none", color:'white'}}
+                                className="blog-list">
                                   {blog.title}
                                   {"-"}
                                   {blog.date}
                                 </p>
                                 <p>Likes:{blog.upvotes}</p>
-                                <p>{blog.content.substring(0, 300)}...</p>
-                              </div>
+                                <p style={{textOverflow:"none", color:'white'}}>{blog.content.substring(0, 100)}...</p>
                             </li>
                           </div>
                         </div>
@@ -144,19 +143,18 @@ const blogindex = () => {
                       <div className="blogs">
                         <div className="card-body">
                           <li key={blog.id}>
-                            <div bg="black" p="1" rounded="none">
                               <img
-                                style={{ height: "100px", float: "right" }}
+                                style={{ height: "100px" }}
                                 src={blog.image}
                               />
-                              <p className="blog-list">
+                              <p  style={{textOverflow:"none", color:'white'}}
+                              className="blog-list">
                                 {blog.title}
                                 {"-"}
                                 {blog.date}
                               </p>
                               <p>Likes:{blog.upvotes}</p>
-                              <p>{blog.content.substring(0, 300)}...</p>
-                            </div>
+                              <p style={{textOverflow:"none", color:'white'}}>{blog.content.substring(0, 100)}...</p>
                           </li>
                         </div>
                       </div>
@@ -179,19 +177,18 @@ const blogindex = () => {
                       <div className="blogs">
                         <div className="card-body">
                           <li key={blog.id}>
-                            <div bg="black" p="1" rounded="none">
                               <img
-                                style={{ height: "100px", float: "right" }}
+                                style={{ height: "100px"}}
                                 src={blog.image}
                               />
-                              <p className="blog-list">
+                              <p  style={{textOverflow:"none", color:'white'}}
+                              className="blog-list">
                                 {blog.title}
                                 {"-"}
                                 {blog.date}
                               </p>
                               <p>Likes:{blog.upvotes}</p>
-                              <p>{blog.content.substring(0, 300)}...</p>
-                            </div>
+                              <p style={{textOverflow:"none", color:'white'}}>{blog.content.substring(0, 100)}...</p>
                           </li>
                         </div>
                       </div>

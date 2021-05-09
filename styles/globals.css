@@ -66,6 +66,7 @@ h1 {
   white-space: nowrap;
   color: rgb(17, 16, 16);
   padding: 10px;
+  display: block;
 }
 
 .blog-feature {

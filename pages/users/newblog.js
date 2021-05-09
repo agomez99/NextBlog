@@ -45,7 +45,7 @@ const newblog = () => {
     }
         return (
             <div>
-               <Navbar expand="lg" variant="light" bg="light">
+               <Navbar expand="lg" >
         <Navbar.Brand href="/">Blog</Navbar.Brand>
         <Container  className="d-flex flex-row-reverse">
           <div bg="grey-light" text="center" p="4" rounded="none">
@@ -85,18 +85,18 @@ const newblog = () => {
 
                     </Col>
                     <Col xl={6}>
-                        <div className="blog-content" text="left" p="5" rounded="none">
+                        <div  className="blog-content" text="left" p="5" rounded="none">
                             <ul >
                                 {blogs.slice(1, 20).map(blog =>
                                     <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                                        <a className="card">
-                                            <div className="card-body">
+                                        <a className="card" >
+                                            <div className="card-body"  style={{backgroundColor:'purple'}}>
                                                 <li key={blog.id} >
-                                                    <div bg="black" p="1" rounded="none">
+                                                    <div  p="1" rounded="none">
                                                         <img style={{ height: "50px", float: "right" }} src={blog.image} />
                                                         <p className="blog-list">{blog.title}{"-"}{blog.date}</p>
 
-                                                        <p >{blog.content.substring(0, 100)}...</p>
+                                                        <p style={{color:'white'}}>{blog.content.substring(0, 100)}...</p>
                                                         <Button variant="danger" >Delete</Button>
 
                                                     </div>
