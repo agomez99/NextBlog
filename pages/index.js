@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import fire from '../config/fire-config';
+import Layout from '../components/Layout'
 import CreatePost from '../components/CreatePost';
 import Link from 'next/link';
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SocialFollow from "../SocialFollow"
 import Disqus from '../components/Disqus';
-import Layout from '../components/Layout'
 import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
 import GoogleAnalytics from "../components/googleAnalytics.js"
-
+import Loading from '../components/Loading';
   const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState('');
@@ -45,7 +45,13 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
         }, 2000)
       });
   }
-
+  if (!blogs) {
+    return (
+      <div >
+        <h2 style={{ fontSize: "1rem", fontFamily: "sans-serif", textAlign: "center" }}>Loading...<Loading/></h2>
+      </div>
+    )
+  }
   return (
     
     <div>
@@ -71,9 +77,11 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
       <GoogleAnalytics />
 
       <Navbar className="nav-bar" expand="lg" >
-        <Navbar.Brand style={{  fontSize:"1.4rem",textDecoration:"none" }}  href="/" className="brand">Blog</Navbar.Brand>
+        <Navbar.Brand style={{  fontSize:"1.8rem",textDecoration:"none" }}  href="/" className="brandlogo">Blog</Navbar.Brand>
         <Container  className="d-flex flex-row-reverse">
           <SocialFollow />
+          </Container>
+
           <div bg="grey-light" text="center" p="4" rounded="none">
           {notification}
           {!loggedIn
@@ -83,10 +91,10 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
                     <a>Register</a>
                   </Link> |  */}
                 <Link href="/users/blogindex">
-                <a style={{ float: "left",fontSize:"1.4rem", textDecoration:"none"  }}> Blogs</a>
+                <a style={{ float: "left",fontSize:"1.2rem", textDecoration:"none"  }}> Blogs</a>
               </Link>
               <Link href="/users/login">
-                <a style={{ paddingLeft:"100px", fontSize:"1.4rem",textDecoration:"none" }}> Login</a>
+                <a style={{ paddingLeft:"100px", fontSize:"1.2rem",textDecoration:"none" }}> Login</a>
               </Link>
 
             </div>
@@ -116,26 +124,25 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
           }
           
         </div>
-        </Container>
       </Navbar>
       <Layout>
 
       <Row>
-      <Col className="Col" xl={6}>
-          <div className="col-xl">
+      <div className="Col" xl={6}>
+            <h1 className="glowhead" style={{marginBottom:"10%",textAlign:"center"}}>Welome to my blog!</h1>
             <div className="card1">
               <div className="card-body1">
                 {blogs.slice(0, 1).map(blog =>
                   <div id="crosshair" className="blog-feature" text="left" p="5" rounded="none">
                   <div>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id} >
-                        <p style={{fontSize:"1.9rem", float:"left"}}>{blog.title}</p>
+                        <p style={{fontSize:"1.9rem", float:"left"}} className="glow">{blog.title}</p>
                   </Link>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id} >
-                        <p style={{fontSize:"1.9rem", float:"right"}}>{blog.date}</p>
+                        <p style={{fontSize:"1.9rem", float:"right"}} className="glow">{blog.date}</p>
                   </Link>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                      <img style={{ width: "100%" }} src={blog.image} href="/blog/[id]" as={'/blog/' + blog.id} />
+                      <img style={{ width: "100%", borderRadius:"25px" }} src={blog.image} href="/blog/[id]" as={'/blog/' + blog.id} />
                   </Link>
                   </div>
                     <div className="blog-content-main">
@@ -149,14 +156,17 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
                     </div>
                   </div>
                 )}
-              </div>
             </div>
         {/* <Heart/> */}
           </div>
           {loggedIn && <CreatePost />}
-          </Col>
-          <Col xl={4}>
-            <div className="blog-content" text="left" p="5" rounded="none">
+          </div>
+
+          <div className="Col" xl={4}>
+
+            <div  text="left" p="5" rounded="none" style={{borderRadius:"50px"}}>
+            <label>Older Blogs</label>
+
               <ul >
                 {blogs.slice(1, 6).map(blog =>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id}>
@@ -164,10 +174,10 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
                     <div className="card-body">
                       <li key={blog.id} >
                         <div bg="black" p="1" rounded="none" className="blogcards">
-                          <img style={{ height: "100px", display:"block", marginLeft:"auto", marginRight:"auto" }} src={blog.image} />
+                          <img style={{ height: "100px", display:"block", marginLeft:"auto", marginRight:"auto", borderRadius:"5px" }} src={blog.image} />
                           <p className="blog-list" style={{textAlign:"center"}}>{blog.title}{"-"}</p>
-                          <p>{blog.date}</p>
-                          <p >{blog.content.substring(0, 100)}...</p>
+                          <p className="blog-content-main">{blog.date}</p>
+                          <p className="blog-content-main">{blog.content.substring(0, 75)}...</p>
                         </div>
                       </li>
                     </div>
@@ -176,20 +186,24 @@ import GoogleAnalytics from "../components/googleAnalytics.js"
                 )}
 
               </ul>
+              <Link href="/users/blogindex">
+                <a style={{ float: "right",fontSize:"1.4rem", textDecoration:"none"   }}>More Blogs</a>
+              </Link>
             </div>
-            </Col>
+            </div>
           </Row>
           
-          <Col className="comment" xl={5}>
-          <div className="shareDiv" style={{ display:"flex", justifyContent:"center" }}>
-              <label>Share</label>
+          <Col className="comment" xl={6}>
+          <div className="shareDiv">
+          <p>Share</p>
+
               <Twitter link={"https://agblog.vercel.app/"} />   
               <Facebook  link={"https://agblog.vercel.app/"} /> 
               <Linkedin  link={"https://agblog.vercel.app/"} />              
             </div>
           <Disqus />
           </Col>
-          </Layout>
+      </Layout>
          
     </div>
 

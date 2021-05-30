@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import fire from '../../config/fire-config';
 import Link from 'next/link'
+import GoogleAnalytics from "../../components/googleAnalytics";
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import SocialFollow from '../../SocialFollow'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
-import MyButtton from '../../components/Like';
-import Likes from '../../components/Likes';
+import {LikeButton } from '@lyket/react';
 
+import Loading from '../../components/Loading'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
@@ -25,8 +26,13 @@ const Blog = (props) => {
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [date, setDate] = useState('');
-  const [upvotes, setUpvotes] = useState('');
+  // const [upvotes, setUpvotes] = useState('');
+  const index = useRouter()
+  const {
+    query: { id },
+  } = index
 
+ console.log(props.id)
 
   fire.auth()
     .onAuthStateChanged((user) => {
@@ -36,6 +42,15 @@ const Blog = (props) => {
         setLoggedIn(false)
       }
     })
+    useEffect(() => {
+      fire.firestore()
+        .collection('blog')
+        .doc(props.id)
+        .get()
+        .then(result => {
+          setBlog(result.data())
+        })
+    }, []);
   const handleLogout = () => {
     fire.auth()
       .signOut()
@@ -89,143 +104,210 @@ const handleEdit =(event) =>{
     }, 2000)
   }
 
-  useEffect(() => {
-    fire.firestore()
-      .collection('blog')
-      .doc(props.id)
-      .get()
-      .then(result => {
-        setBlog(result.data())
-      })
-  }, []);
+
   if (!blog) {
     return (
       <div >
-        <h2 style={{ fontSize: "1rem", fontFamily: "sans-serif", textAlign: "center", marginTop: "25%" }}>Loading...</h2>
+        <h2 style={{ fontSize: "1rem", fontFamily: "sans-serif", textAlign: "center" }}>Loading...<Loading/></h2>
       </div>
     )
   }
 
-  const router = useRouter()
-  const {
-    query: { id },
-  } = router
 
-// console.log(props.id)
 
   return (
-
     <div>
       <Head>
         <title>Austines Blog</title>
-        <meta property="og:url" content="https://agblog.vercel.app/blog/${props.id}" />
-        <meta property="og:type" content="{blog.title}"/>
-        <meta property="og:title" content="Blog"/>
-        <meta property="og:description"
+        <meta property="og:url" content="https://agblog.vercel.app" />
+        <meta property="og:type" content="My Blog" />
+        <meta property="og:title" content="Blog" />
+        <meta
+          property="og:description"
           content="This a blog of my journey as developer"
         />
-        <meta property="og:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
-      
+        <meta
+          property="og:image"
+          content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"
+        />
+
         <meta property="fb:app_id" content="134816985125175" />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Austine's Blog "/>
-        <meta property="twitter:description" content="My blog as Junior Developer"/>
-        <meta property="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
-       </Head>
+        <meta property="twitter:title" content="Austine's Blog " />
+        <meta
+          property="twitter:description"
+          content="My blog as Junior Developer"
+        />
+        <meta
+          property="twitter:image"
+          content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"
+        />
+      </Head>
+      <GoogleAnalytics />
+
       <Navbar expand="lg" className="nav-bar">
-        <Navbar.Brand href="/">Blog Home</Navbar.Brand>
+        <Navbar.Brand
+          href="/"
+          className="brandlogo"
+          style={{ fontSize: "1.5rem" }}
+        >
+          Blog Home
+        </Navbar.Brand>
         <Container className="d-flex flex-row-reverse">
           <SocialFollow />
         </Container>
         <div bg="grey-light" text="center" p="4" rounded="none">
           {notification}
-          {!loggedIn
-            ?
+          {!loggedIn ? (
             <div>
               {/* <Link href="/users/register">
                     <a>Register</a>
                   </Link> |  */}
+              <Link href="/users/blogindex">
+                <a
+                  style={{
+                    float: "left",
+                    fontSize: "1.2rem",
+                    textDecoration: "none",
+                  }}
+                >
+                  {" "}
+                  Blogs
+                </a>
+              </Link>
               <Link href="/users/login">
-                <a style={{ float: "left" }}> Login</a>
+                <a
+                  style={{
+                    paddingLeft: "100px",
+                    fontSize: "1.2rem",
+                    textDecoration: "none",
+                  }}
+                >
+                  {" "}
+                  Login
+                </a>
               </Link>
             </div>
-            :
+          ) : (
             <button onClick={handleLogout}>Logout</button>
-          }
+          )}
         </div>
       </Navbar>
       <Layout>
         <Row>
           <Col className="feature">
-            <h2 style={{ textAlign: "center" }}>{blog.title}</h2>
-            <h2 style={{ textAlign: "center" }}>{blog.date}</h2>
-            <img src={blog.image} className="center" style={{ maxHeight: "300px",maxWidth:"600px" }} />
-            <p className="blog-content-main">
-              {blog.content}
-            </p>
-            {loggedIn
-              ?
+            <div key={index}>
+              <h2 className="glow" style={{ textAlign: "center" }}>
+                {blog.title}
+              </h2>
+              <h2 style={{ textAlign: "center" }}>{blog.date}</h2>
+              <img
+                src={blog.image}
+                className="center"
+                style={{ maxHeight: "300px", maxWidth: "600px" }}
+              />
+              <p className="blog-content-main">{blog.content}</p>
+            </div>
+            {loggedIn ? (
               <form onSubmit={handleSubmit}>
                 <div>
-                  Title<br />
-                  <input type="text" value={blog.title}
-                    onChange={({ target }) => setTitle(target.value)} />
+                  Title
+                  <br />
+                  <input
+                    type="text"
+                    value={blog.title}
+                    onChange={({ target }) => setTitle(target.value)}
+                  />
                 </div>
                 <div>
-                  Date<br />
-                  <input type="text" value={blog.date}
-                    onChange={({ target }) => setDate(target.value)} />
+                  Date
+                  <br />
+                  <input
+                    type="text"
+                    value={blog.date}
+                    onChange={({ target }) => setDate(target.value)}
+                  />
                 </div>
                 <div>
-                  Content<br />
-                  <textarea value={blog.content}
-                    onChange={({ target }) => setContent(target.value)} />
+                  Content
+                  <br />
+                  <textarea
+                    value={blog.content}
+                    onChange={({ target }) => setContent(target.value)}
+                  />
                 </div>
                 <div>
-                  Image Url<br />
-                  <input type="text" value={blog.image}
-                    onChange={({ target }) => setImage(target.value)} />
-                </div>           <div>
-                  Likes<br />
-                  <input type="text" value={blog.upvotes}
-                    onChange={({ target }) => setUpvotes(target.value)} />
+                  Image Url
+                  <br />
+                  <input
+                    type="text"
+                    value={blog.image}
+                    onChange={({ target }) => setImage(target.value)}
+                  />
+                </div>
+                <div>
+                  Likes
+                  <br />
+                  <input
+                    type="text"
+                    value={blog.upvotes}
+                    onChange={({ target }) => setUpvotes(target.value)}
+                  />
                 </div>
                 <button type="submit">Save</button>
               </form>
-              :
-              <>
-              </>
-            }
+            ) : (
+              <></>
+            )}
             <Link href="/">
-              <a><p1>Back</p1>
-              <FontAwesomeIcon  icon={faArrowLeft } size = '3x'/></a>
+              <a>
+                <p>Back</p>
+                <FontAwesomeIcon icon={faArrowLeft} size="3x" />
+              </a>
             </Link>
             <div className="like-btn">
-            {/* <h2 style={{ textAlign: "center" }}>{blog.upvotes}{"   "}Likes </h2> */}
-            <Likes />
-            {/* <MyButtton  style={{paddingRight:"5%"}}/> */}
+              <LikeButton
+                component={LikeButton.templates.Twitter}
+                id={props.id}
+                namespace="post"
+              />
+              Likes
             </div>
-            <p style={{textAlign:"center"}}>Currently listening to</p>
+            <p style={{ textAlign: "center" }}>Currently listening to</p>
             <div className="spotify">
-            <img src="https://spotify-now-playing-woad.vercel.app/api/spotify-playing" className="spotify-img" lt="Spotify Now Playing" width="50%"/>
+              <img
+                src="https://spotify-now-playing-woad.vercel.app/api/spotify-playing"
+                className="spotify-img"
+                lt="Spotify Now Playing"
+                width="50%"
+              />
             </div>
           </Col>
-
         </Row>
-      </Layout>
 
-      <Col className="comment" xl={5}>            
-      <div className="shareDiv" style={{ display:"flex", justifyContent:"center" }}>
-              <label>Share</label>
-              <Twitter link={"https://agblog.vercel.app/blog/"+props.id} />   
+        <Col className="comment" xl={5}>
+          <p style={{ textAlign: "center" }}>Share</p>
+          <div
+            className="shareDiv"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              paddingBottom: "20px",
+            }}
+          >
+            {/* <Twitter link={"https://agblog.vercel.app/blog/"+props.id} />   
               <Facebook  link={"https://agblog.vercel.app/blog/"+props.id} /> 
-              <Linkedin  link={"https://agblog.vercel.app/blog/"+props.id} />              
-            </div>
-        <Disqus />
-      </Col>
+              <Linkedin  link={"https://agblog.vercel.app/blog/"+props.id} />  */}
+            <Twitter link={"https://agblog.vercel.app/blog/" + props.id} />
+            <Facebook link={"https://agblog.vercel.app"} />
+            <Linkedin link={"https://agblog.vercel.app" + props.id} />
+          </div>
+          <Disqus />
+        </Col>
+      </Layout>
     </div>
-  )
+  );
 }
 Blog.getInitialProps = ({ query }) => {
   return {

@@ -6,6 +6,9 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text}
   }
+  h1{
+    color: ${({ theme }) => theme.text};
+  }
   .blog-content {
     background-color: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text}
@@ -31,6 +34,23 @@ export const GlobalStyles = createGlobalStyle`
   border-color: ${({ theme }) => theme.card}
 
 }
+
+.blogs{
+    background-color: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
+    border-color: ${({ theme }) => theme.card}
+
+}
+.blogcontent{
+  color: ${({ theme }) => theme.text};
+
+}
+.blogs:hover{
+  border-color: ${({ theme }) => theme.card};
+  color: ${({ theme }) => theme.text};
+  background-color: ${({ theme }) => theme.card};
+
+}
 .blog-feature{
     color: ${({ theme }) => theme.text}
 
@@ -48,11 +68,49 @@ export const GlobalStyles = createGlobalStyle`
 
 }
 a{
-    color: ${({ theme }) => theme.text}
+    color: ${({ theme }) => theme.navlink}
 
 }
 .navbar-light .navbar-brand{
  color: ${({ theme }) => theme.text}
 }
-   
+
+.glow, .brandlogo {
+  font-size: 80px;
+  color: ${({ theme }) => theme.text}
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: ${({ theme }) => theme.shadow}
+  }
+  to {
+    text-shadow:  ${({ theme }) => theme.shadow2}
+  }
+}
+
+
+.glowhead {
+  font-size: 3rem;
+  color: ${({ theme }) => theme.text
+  }
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: ${({ theme }) => theme.headshadow}
+  }
+  to {
+    text-shadow:  ${({ theme }) => theme.headshadow2}
+  }
+}
+
 `

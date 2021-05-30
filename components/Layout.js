@@ -28,16 +28,16 @@ function Layout({ children }) {
   return (
     // This will pass `theme` from `ThemeProvider` as a prop into `GlobalStyles`
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-          <div style={{display:"flex", justifyContent:"flex-end", marginRight:"15%"}}>
-        {/* <button onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? 'Light it up!' : 'Turn the light off!'}
-        </button> */}
+          <div style={{display:"flex", justifyContent:"flex-end"}}>
+
 
         <DarkModeToggle
+        style={{paddingRight:"50px"}}
       onChange={setDarkMode}
       checked={darkMode}
       size={100}
     />
+              {darkMode ? '💡Light on!' : '🌙Lights off!'}
       </div>
       <GlobalStyles />
       {children}
