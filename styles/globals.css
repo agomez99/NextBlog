@@ -46,7 +46,6 @@ label{
   justify-content: center;
   align-items: center;
   margin-bottom: 5%;
-  padding:5px;
 }
 a {
   color: inherit;
@@ -107,9 +106,10 @@ a.card{
 }
 .card-body{
   max-height: 500px;
-  min-height: 700px;
+  min-height:500px;
+  min-width:100%;
   height:350px;
-  width:300px;
+  width:500px;
   max-width:300px;
 }
 .card:hover {
@@ -222,4 +222,8 @@ a.card:hover {
   display: inline-flex;
   text-align: left;
 }
-
+.olderblogs{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}

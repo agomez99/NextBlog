@@ -130,7 +130,6 @@ import Loading from '../components/Loading';
       <Row>
       <div className="Col" xl={6}>
             <h1 className="glowhead" style={{marginBottom:"10%",textAlign:"center"}}>Welome to my blog!</h1>
-            <div className="card1">
               <div className="card-body1">
                 {blogs.slice(0, 1).map(blog =>
                   <div id="crosshair" className="blog-feature" text="left" p="5" rounded="none">
@@ -158,13 +157,11 @@ import Loading from '../components/Loading';
                 )}
             </div>
         {/* <Heart/> */}
-          </div>
           {loggedIn && <CreatePost />}
           </div>
+          <div   className="olderblogs" >
 
-          <div className="Col" xl={4}>
-
-            <div  text="left" p="5" rounded="none" style={{borderRadius:"50px"}}>
+          <div className="Col" xl={6}>
             <label>Older Blogs</label>
 
               <ul >
