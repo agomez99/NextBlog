@@ -34,11 +34,13 @@ body {
   border: 1px solid #bbb;
   box-sizing: border-box;
 }
+.center{
+  max-width: 70%;
+}
 
 label{
   text-align: center;
-  margin-left:33.3%;
-  margin-right: 33.3%;
+
   margin-top: 10%;
 }
 .like-btn{
@@ -89,6 +91,7 @@ h1 {
   margin-top: 10%;
   margin-left:10%;
   margin-right:10%;
+
 }
 .blogcards{
   font-family: 'Roboto';
@@ -99,7 +102,9 @@ h1 {
   margin-top: 5%;
   font-size: 1.2rem;
   font-family: 'Lato', sans-serif;
+  
 }
+
 a.card{
   border-color: #8d8d8d;
   max-width:400px;
@@ -227,3 +232,34 @@ a.card:hover {
   margin-right: auto;
   display: block;
 }
+
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) {
+
+
+      h2.glow{
+        font-size: 12vw;
+        display: inline-flex;
+      }
+      .spotify-img{
+        width:100%;
+      }
+
+      .feature{
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      .comment{
+        margin-left: 5%;
+        margin-right: 0%;
+      }
+      .blog-content-main{
+        margin-top: 5%;
+        font-size:5vw;
+        font-family: 'Lato', sans-serif;
+        
+      }
+     }

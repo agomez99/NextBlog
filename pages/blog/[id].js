@@ -194,6 +194,8 @@ const handleEdit =(event) =>{
           )}
         </div>
       </Navbar>
+
+      
       <Layout>
         <Row>
           <Col className="feature">
@@ -205,61 +207,10 @@ const handleEdit =(event) =>{
               <img
                 src={blog.image}
                 className="center"
-                style={{ maxHeight: "300px", maxWidth: "600px" }}
               />
               <p className="blog-content-main">{blog.content}</p>
             </div>
-            {loggedIn ? (
-              <form onSubmit={handleSubmit}>
-                <div>
-                  Title
-                  <br />
-                  <input
-                    type="text"
-                    value={blog.title}
-                    onChange={({ target }) => setTitle(target.value)}
-                  />
-                </div>
-                <div>
-                  Date
-                  <br />
-                  <input
-                    type="text"
-                    value={blog.date}
-                    onChange={({ target }) => setDate(target.value)}
-                  />
-                </div>
-                <div>
-                  Content
-                  <br />
-                  <textarea
-                    value={blog.content}
-                    onChange={({ target }) => setContent(target.value)}
-                  />
-                </div>
-                <div>
-                  Image Url
-                  <br />
-                  <input
-                    type="text"
-                    value={blog.image}
-                    onChange={({ target }) => setImage(target.value)}
-                  />
-                </div>
-                <div>
-                  Likes
-                  <br />
-                  <input
-                    type="text"
-                    value={blog.upvotes}
-                    onChange={({ target }) => setUpvotes(target.value)}
-                  />
-                </div>
-                <button type="submit">Save</button>
-              </form>
-            ) : (
-              <></>
-            )}
+  
             <Link href="/">
               <a>
                 <p>Back</p>
@@ -285,7 +236,7 @@ const handleEdit =(event) =>{
             </div>
           </Col>
         </Row>
-
+              <Row>
         <Col className="comment" xl={5}>
           <p style={{ textAlign: "center" }}>Share</p>
           <div
@@ -305,6 +256,7 @@ const handleEdit =(event) =>{
           </div>
           <Disqus />
         </Col>
+        </Row>
       </Layout>
     </div>
   );

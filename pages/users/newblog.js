@@ -4,13 +4,12 @@ import Link from "next/link";
 import fire from "../../config/fire-config";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom";
-
 import { Container, Row, Col, Navbar, Button } from "react-bootstrap";
 
 const newblog = () => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);d
 
   fire.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -107,8 +106,6 @@ const newblog = () => {
                           </p>
                           <Button variant="danger">Delete</Button>
 
-                          <p>{blog.content.substring(0, 100)}...</p>
-                          <Button variant="danger">Delete</Button>
                         </div>
                       </li>
                     </div>

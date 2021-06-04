@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import fire from '../config/fire-config';
 import Layout from '../components/Layout'
+import RichTextEditor from '../components/RichTextEditor';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -68,6 +69,7 @@ const CreatePost = () => {
         <button type="submit">Save</button>
       </form>
       </div>
+
       </Layout>
 
     </div>
