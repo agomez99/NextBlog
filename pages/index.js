@@ -134,18 +134,18 @@ import Loading from '../components/Loading';
                 {blogs.slice(0, 1).map(blog =>
                   <div id="crosshair" className="blog-feature" text="left" p="5" rounded="none">
                   <div>
-                  <Link href="/blog/[id]" as={'/blog/' + blog.id} >
-                        <p style={{fontSize:"1.9rem", float:"left"}} className="glow">{blog.title}</p>
+                  <Link href="/blog/[id]" as={'/blog/' + blog.id} key={blog.id} >
+                        <p key={blog.id} style={{fontSize:"1.9rem", float:"left"}} className="glow">{blog.title}</p>
                   </Link>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id} >
-                        <p style={{fontSize:"1.9rem", float:"right"}} className="glow">{blog.date}</p>
+                        <p key={blog.id} style={{fontSize:"1.9rem", float:"right"}} className="glow">{blog.date}</p>
                   </Link>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                      <img style={{ width: "100%", borderRadius:"25px" }} src={blog.image} href="/blog/[id]" as={'/blog/' + blog.id} />
+                      <img key={blog.id} style={{ width: "100%", borderRadius:"25px" }} src={blog.image} href="/blog/[id]" as={'/blog/' + blog.id} />
                   </Link>
                   </div>
                     <div className="blog-content-main">
-                      <Link href="/blog/[id]" as={'/blog/' + blog.id}>
+                      <Link  key={blog.id} href="/blog/[id]" as={'/blog/' + blog.id}>
                       <p>
                       {blogs[0].content.substring(0, 150)}...
                       </p>

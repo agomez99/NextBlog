@@ -4,3 +4,4 @@ module.exports = withImages({
     return config
   }
 })
+
