@@ -90,10 +90,10 @@ import Loading from '../components/Loading';
               {/* <Link href="/users/register">
                     <a>Register</a>
                   </Link> |  */}
-                <Link href="/users/blogindex">
+                <Link href="/users/blogindex" legacyBehavior>
                 <a style={{ float: "left",fontSize:"1.2rem", textDecoration:"none"  }}> Blogs</a>
               </Link>
-              <Link href="/users/login">
+              <Link href="/users/login" legacyBehavior>
                 <a style={{ paddingLeft:"100px", fontSize:"1.2rem",textDecoration:"none" }}> Login</a>
               </Link>
 
@@ -109,10 +109,10 @@ import Loading from '../components/Loading';
           {loggedIn
             ?
             <div>
-              <Link href="/users/blogindex">
+              <Link href="/users/blogindex" legacyBehavior>
                 <a style={{ float: "left",fontSize:"1.4rem", textDecoration:"none"   }}> Blogs</a>
               </Link>
-              <Link href="/users/newblog">
+              <Link href="/users/newblog" legacyBehavior>
                 <a style={{ paddingLeft:"100px", float: "left", fontSize:"1.4rem", textDecoration:"none"   }}> New blog</a>
               </Link>
             </div>
@@ -166,7 +166,7 @@ import Loading from '../components/Loading';
 
               <ul >
                 {blogs.slice(1, 6).map(blog =>
-                  <Link href="/blog/[id]" as={'/blog/' + blog.id}>
+                  <Link href="/blog/[id]" as={'/blog/' + blog.id} legacyBehavior>
                   <a className="card">
                     <div className="card-body">
                       <li key={blog.id} >
@@ -183,7 +183,7 @@ import Loading from '../components/Loading';
                 )}
 
               </ul>
-              <Link href="/users/blogindex">
+              <Link href="/users/blogindex" legacyBehavior>
                 <a style={{ float: "right",fontSize:"1.4rem", textDecoration:"none"   }}>More Blogs</a>
               </Link>
             </div>
@@ -193,9 +193,6 @@ import Loading from '../components/Loading';
           <Col className="comment" xl={6}>
           <div className="shareDiv">
           <p>Share</p>
-
-              <Twitter link={"https://agblog.vercel.app/"} />   
-              <Facebook  link={"https://agblog.vercel.app/"} /> 
               <Linkedin  link={"https://agblog.vercel.app/"} />              
             </div>
           <Disqus />

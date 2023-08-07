@@ -9,7 +9,7 @@ import { Container, Row, Col, Navbar, Button } from "react-bootstrap";
 const newblog = () => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);d
+  const [loggedIn, setLoggedIn] = useState(false);
 
   fire.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -46,11 +46,11 @@ const newblog = () => {
       <Navbar expand="lg">
         <Navbar.Brand href="/">Blog</Navbar.Brand>
         <Container className="d-flex flex-row-reverse">
-          <div bg="grey-light" text="center" p="4" rounded="none">
+          <div>
             {notification}
             {!loggedIn ? (
               <div>
-                <Link href="/users/login">
+                <Link href="/users/login" legacyBehavior>
                   <a style={{ float: "left" }}> Login</a>
                 </Link>
               </div>
@@ -62,10 +62,10 @@ const newblog = () => {
             {notification}
             {loggedIn ? (
               <div>
-                <Link href="/users/newblog">
+                <Link href="/users/newblog" legacyBehavior>
                   <a style={{ float: "left" }}> New blog</a>
                 </Link>
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                   <a>Blogs</a>
                 </Link>
               </div>
@@ -83,7 +83,7 @@ const newblog = () => {
           <div className="blog-content" text="left" p="5" rounded="none">
             <ul>
               {blogs.slice(1, 20).map((blog) => (
-                <Link href="/blog/[id]" as={"/blog/" + blog.id}>
+                <Link href="/blog/[id]" as={"/blog/" + blog.id} legacyBehavior>
                   <a className="card">
                     <div
                       className="card-body"
@@ -116,7 +116,7 @@ const newblog = () => {
           </div>
         </Col>
         :
-        <Link href="/users/login">
+        <Link href="/users/login" legacyBehavior>
           <a style={{ float: "left" }}> Login</a>
         </Link>
       </Row>

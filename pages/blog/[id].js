@@ -164,7 +164,7 @@ const handleEdit =(event) =>{
               {/* <Link href="/users/register">
                     <a>Register</a>
                   </Link> |  */}
-              <Link href="/users/blogindex">
+              <Link href="/users/blogindex" legacyBehavior>
                 <a
                   style={{
                     float: "left",
@@ -176,7 +176,7 @@ const handleEdit =(event) =>{
                   Blogs
                 </a>
               </Link>
-              <Link href="/users/login">
+              <Link href="/users/login" legacyBehavior>
                 <a
                   style={{
                     paddingLeft: "100px",
@@ -211,20 +211,18 @@ const handleEdit =(event) =>{
               <p className="blog-content-main">{blog.content}</p>
             </div>
   
-            <Link href="/">
-              <a>
+              <a  href="/" >
                 <p>Back</p>
                 <FontAwesomeIcon icon={faArrowLeft} size="3x" />
               </a>
-            </Link>
-            <div className="like-btn">
+            {/* <div className="like-btn">
               <LikeButton
                 component={LikeButton.templates.Twitter}
                 id={props.id}
                 namespace="post"
               />
               Likes
-            </div>
+            </div> */}
             <p style={{ textAlign: "center" }}>Currently listening to</p>
             <div className="spotify">
               <img
@@ -247,9 +245,7 @@ const handleEdit =(event) =>{
               paddingBottom: "20px",
             }}
           >
-            {/* <Twitter link={"https://agblog.vercel.app/blog/"+props.id} />   
-              <Facebook  link={"https://agblog.vercel.app/blog/"+props.id} /> 
-              <Linkedin  link={"https://agblog.vercel.app/blog/"+props.id} />  */}
+
             <Twitter link={"https://agblog.vercel.app/blog/" + props.id} />
             <Facebook link={"https://agblog.vercel.app"} />
             <Linkedin link={"https://agblog.vercel.app" + props.id} />

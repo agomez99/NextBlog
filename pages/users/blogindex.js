@@ -21,7 +21,6 @@ const blogindex = () => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
-
   fire.auth().onAuthStateChanged((user) => {
     if (user) {
       setLoggedIn(true);
@@ -141,7 +140,7 @@ const blogindex = () => {
           <Row>
             <Col md={4}>
               {blogs.slice(1, 4).map((blog) => (
-                <Link href="/blog/[id]" as={"/blog/" + blog.id}>
+                <Link href="/blog/[id]" as={"/blog/" + blog.id} legacyBehavior>
                   <a
                     style={{ backgroundColor: "grey", textDecoration: "none" }}
                   >
@@ -174,7 +173,7 @@ const blogindex = () => {
             <Col md={4}>
               <ul>
                 {blogs.slice(4, 7).map((blog) => (
-                  <Link href="/blog/[id]" as={"/blog/" + blog.id}>
+                  <Link href="/blog/[id]" as={"/blog/" + blog.id} legacyBehavior>
                     <a
                       style={{
                         backgroundColor: "grey",
@@ -211,7 +210,7 @@ const blogindex = () => {
             <Col md={4}>
               <ul>
                 {blogs.slice(8, 20).map((blog) => (
-                  <Link href="/blog/[id]" as={"/blog/" + blog.id}>
+                  <Link href="/blog/[id]" as={"/blog/" + blog.id} legacyBehavior>
                     <a
                       style={{
                         backgroundColor: "grey",
