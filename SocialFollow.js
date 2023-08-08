@@ -11,6 +11,7 @@ export default function SocialFollow() {
         className="linkedin social">
         <FontAwesomeIcon icon={faLinkedin} size="3x" />
       </a>
+      
       <a href="https://github.com/agomez99"
         className="github social" id="git">
         <FontAwesomeIcon icon={faGithub} size="3x" />

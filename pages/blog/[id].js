@@ -8,7 +8,6 @@ import SocialFollow from '../../SocialFollow'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
 import {LikeButton } from '@lyket/react';
-import Nav from '../../components/Nav';
 import Loading from '../../components/Loading'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
@@ -119,33 +118,9 @@ const handleEdit =(event) =>{
     <div>
       <Head>
         <title>Austines Blog</title>
-        <meta property="og:url" content="https://agblog.vercel.app" />
-        <meta property="og:type" content="My Blog" />
-        <meta property="og:title" content="Blog" />
-        <meta
-          property="og:description"
-          content="This a blog of my journey as developer"
-        />
-        <meta
-          property="og:image"
-          content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"
-        />
 
-        <meta property="fb:app_id" content="134816985125175" />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Austine's Blog " />
-        <meta
-          property="twitter:description"
-          content="My blog as Junior Developer"
-        />
-        <meta
-          property="twitter:image"
-          content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"
-        />
       </Head>
       <GoogleAnalytics />
-    <Nav/>
      
       
       <Layout>

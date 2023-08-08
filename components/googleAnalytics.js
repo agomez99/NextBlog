@@ -1,5 +1,6 @@
 import { Component } from "react"
 import Head from "next/head"
+import Script from 'next/script'
 
 export default class extends Component {
   render() {
@@ -8,8 +9,8 @@ export default class extends Component {
         {
           process.env.NODE_ENV === "production" && process.browser ?
           <Head>
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-B3BS32ER2W"></script>
-            <script
+            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-B3BS32ER2W"></Script>
+            <Script
               async
               dangerouslySetInnerHTML={{
                 __html: `window.dataLayer = window.dataLayer || [];
