@@ -8,7 +8,7 @@ import SocialFollow from '../../SocialFollow'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Disqus from '../../components/Disqus';
 import {LikeButton } from '@lyket/react';
-
+import Nav from '../../components/Nav';
 import Loading from '../../components/Loading'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
@@ -145,56 +145,8 @@ const handleEdit =(event) =>{
         />
       </Head>
       <GoogleAnalytics />
-
-      <Navbar expand="lg" className="nav-bar">
-        <Navbar.Brand
-          href="/"
-          className="brandlogo"
-          style={{ fontSize: "1.5rem" }}
-        >
-          Blog Home
-        </Navbar.Brand>
-        <Container className="d-flex flex-row-reverse">
-          <SocialFollow />
-        </Container>
-        <div bg="grey-light" text="center" p="4" rounded="none">
-          {notification}
-          {!loggedIn ? (
-            <div>
-              {/* <Link href="/users/register">
-                    <a>Register</a>
-                  </Link> |  */}
-              <Link href="/users/blogindex" legacyBehavior>
-                <a
-                  style={{
-                    float: "left",
-                    fontSize: "1.2rem",
-                    textDecoration: "none",
-                  }}
-                >
-                  {" "}
-                  Blogs
-                </a>
-              </Link>
-              <Link href="/users/login" legacyBehavior>
-                <a
-                  style={{
-                    paddingLeft: "100px",
-                    fontSize: "1.2rem",
-                    textDecoration: "none",
-                  }}
-                >
-                  {" "}
-                  Login
-                </a>
-              </Link>
-            </div>
-          ) : (
-            <button onClick={handleLogout}>Logout</button>
-          )}
-        </div>
-      </Navbar>
-
+    <Nav/>
+     
       
       <Layout>
         <Row>

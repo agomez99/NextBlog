@@ -118,7 +118,6 @@ a.card{
   max-width:300px;
 }
 .card:hover {
-  transform: scale(1.1); /* Equal to scaleX(0.7) scaleY(0.7) */
   font-family: 'Roboto';
 }
 .blogs{
@@ -173,7 +172,7 @@ a.github {
 
 .Col {
   margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 0%;
 }
 
 .card {

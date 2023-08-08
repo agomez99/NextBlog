@@ -35,7 +35,7 @@ function Layout({ children }) {
         style={{paddingRight:"50px"}}
       onChange={setDarkMode}
       checked={darkMode}
-      size={100}
+      size={50}
     />
               {darkMode ? '💡Light on!' : '🌙Lights off!'}
       </div>

@@ -6,11 +6,11 @@ import CreatePost from '../components/CreatePost';
 import Link from 'next/link';
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SocialFollow from "../SocialFollow"
-import Disqus from '../components/Disqus';
-import { Twitter, Facebook, Linkedin, } from 'react-social-sharing'
 import GoogleAnalytics from "../components/googleAnalytics.js"
 import Loading from '../components/Loading';
+import Nav from '../components/Nav';
+
+
   const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState('');
@@ -57,6 +57,7 @@ import Loading from '../components/Loading';
     <div>
       <Head>
         <title>Austines Blog</title>
+        <link rel="icon" href="/favicon.ico" />
         <meta property="og:url" content="https://agblog.vercel.app/"/>
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Blog"/>
@@ -64,67 +65,15 @@ import Loading from '../components/Loading';
           content="My blog as developer"
         />
         <meta property="og:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
-      
-        <meta property="fb:app_id" content="134816985125175" />
-
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Austine's Blog"/>
         <meta name="twitter:description" content="My blog as Junior Developer"/>
         <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
         <meta name="twitter:card" content="summary_large_image"/>
-        
       </Head>
       <GoogleAnalytics />
 
-      <Navbar className="nav-bar" expand="lg" >
-        <Navbar.Brand style={{  fontSize:"1.8rem",textDecoration:"none" }}  href="/" className="brandlogo">Blog</Navbar.Brand>
-        <Container  className="d-flex flex-row-reverse">
-          <SocialFollow />
-          </Container>
-
-          <div bg="grey-light" text="center" p="4" rounded="none">
-          {notification}
-          {!loggedIn
-            ?
-            <div>
-              {/* <Link href="/users/register">
-                    <a>Register</a>
-                  </Link> |  */}
-                <Link href="/users/blogindex" legacyBehavior>
-                <a style={{ float: "left",fontSize:"1.2rem", textDecoration:"none"  }}> Blogs</a>
-              </Link>
-              <Link href="/users/login" legacyBehavior>
-                <a style={{ paddingLeft:"100px", fontSize:"1.2rem",textDecoration:"none" }}> Login</a>
-              </Link>
-
-            </div>
-            :
-            <button onClick={handleLogout}>Logout</button>
-
-          }
-          
-        </div>
-        <div bg="grey-light" text="center" p="4" rounded="none">
-          {notification}
-          {loggedIn
-            ?
-            <div>
-              <Link href="/users/blogindex" legacyBehavior>
-                <a style={{ float: "left",fontSize:"1.4rem", textDecoration:"none"   }}> Blogs</a>
-              </Link>
-              <Link href="/users/newblog" legacyBehavior>
-                <a style={{ paddingLeft:"100px", float: "left", fontSize:"1.4rem", textDecoration:"none"   }}> New blog</a>
-              </Link>
-            </div>
-            :
-            
-            <>
-            </>
-
-          }
-          
-        </div>
-      </Navbar>
+     <Nav/>
       <Layout>
 
       <Row>
@@ -135,39 +84,29 @@ import Loading from '../components/Loading';
                   <div id="crosshair" className="blog-feature" text="left" p="5" rounded="none">
                   <div>
                   <Link href="/blog/[id]" as={'/blog/' + blog.id} key={blog.id} >
-                        <p key={blog.id} style={{fontSize:"1.9rem", float:"left"}} className="glow">{blog.title}</p>
-                  </Link>
-                  <Link href="/blog/[id]" as={'/blog/' + blog.id} >
-                        <p key={blog.id} style={{fontSize:"1.9rem", float:"right"}} className="glow">{blog.date}</p>
-                  </Link>
-                  <Link href="/blog/[id]" as={'/blog/' + blog.id}>
-                      <img key={blog.id} style={{ width: "100%", borderRadius:"25px" }} src={blog.image} href="/blog/[id]" as={'/blog/' + blog.id} />
+                      <img key={blog.id} style={{ width: "100%", borderRadius:"5px" }} src={blog.image} href="/blog/[id]" as={'/blog/' + blog.id} />
+                      <p key={blog.id} style={{fontSize:"1.9rem", float:"left"}} className="glow">{blog.title}</p>
+                      <p key={blog.id} style={{fontSize:"1.9rem", float:"right"}} className="glow">{blog.date}</p>
                   </Link>
                   </div>
                     <div className="blog-content-main">
-                      <Link  key={blog.id} href="/blog/[id]" as={'/blog/' + blog.id}>
-                      <p>
-                      {blogs[0].content.substring(0, 150)}...
-                      </p>
-                      </Link>
+                      <p>{blogs[0].content.substring(0, 150)}..</p>
                       <div>
                       </div>
                     </div>
                   </div>
                 )}
             </div>
-        {/* <Heart/> */}
           {loggedIn && <CreatePost />}
           </div>
           <div   className="olderblogs" >
-
           <div className="Col" xl={6}>
-            <label>Older Blogs</label>
+            <p className='d-flex  justify-content-center mt-5'>Older Blogs</p>
 
               <ul >
                 {blogs.slice(1, 6).map(blog =>
-                  <Link href="/blog/[id]" as={'/blog/' + blog.id} legacyBehavior>
-                  <a className="card">
+                  <Link href="/blog/[id]" as={'/blog/' + blog.id} >
+                  <div className="card">
                     <div className="card-body">
                       <li key={blog.id} >
                         <div bg="black" p="1" rounded="none" className="blogcards">
@@ -178,7 +117,7 @@ import Loading from '../components/Loading';
                         </div>
                       </li>
                     </div>
-                  </a>
+                  </div>
                   </Link>
                 )}
 
@@ -189,14 +128,7 @@ import Loading from '../components/Loading';
             </div>
             </div>
           </Row>
-          
-          <Col className="comment" xl={6}>
-          <div className="shareDiv">
-          <p>Share</p>
-              <Linkedin  link={"https://agblog.vercel.app/"} />              
-            </div>
-          <Disqus />
-          </Col>
+
       </Layout>
          
     </div>
